@@ -1,5 +1,5 @@
 body {
-    font-family: Vazir,sans-serif;
+    font-family: Vazir, sans-serif;
 }
 
 button {
@@ -27,7 +27,8 @@ button {
     margin-right: 1rem;
     justify-content: space-between;
 }
-.nav_bar_item a{
+
+.nav_bar_item a {
     text-decoration: none;
     color: white;
 }
@@ -41,12 +42,12 @@ button {
 .nav_bar_right_items {
     display: flex;
     align-items: center;
-    @media screen (min-width:375px)and(max-width:450px){
+    @media screen (min-width: 375 px) and(max-width: 450 px) {
     margin-right: 0;
 }
 }
 
-.nav_bar_left{
+.nav_bar_left {
     display: flex;
     justify-content: flex-end;
 }
@@ -66,7 +67,7 @@ a {
 }
 
 
-.main_container_page_wall{
+.main_container_page_wall {
     display: flex;
     justify-content: space-between;
     height: 80%;
@@ -76,13 +77,14 @@ a {
 .card {
     @media screen (min-width: 330 px) and (max-hight: 800 px) {
 
-} display: flex;
+    display: flex;
     width: 100px;
+}
 }
 
 
 .wall_container {
-    font-family: Vazir,sans-serif;
+    font-family: Vazir, sans-serif;
     color: #FFF;
     /* background: linear-gradient(90deg, rgba(34,40,49,1) 0%, rgba(34,40,49,1) 100%);*/
     width: 60%;
@@ -96,22 +98,23 @@ a {
     color: #000;
     background-color: #f2f2f2;
     box-shadow: 0 0 5px black;
-    border:1px solid black;
+    border: 1px solid black;
     border-radius: 15px;
     width: 80%;
     height: 70%;
     margin: 5px;
     text-align: center;
 }
-.wall_image_container{
-    box-shadow: 0 0 10px black ;
-    width:40%;
+
+.wall_image_container {
+    box-shadow: 0 0 10px black;
+    width: 40%;
     /*background-image: url("./images/image_wall.jpg");*/
     background-repeat: no-repeat;
     border-radius: 5px;
 }
 
-#wall_image{
+#wall_image {
     width: 100%;
 }
 
@@ -138,7 +141,7 @@ a {
 }
 
 textarea {
-    font-family: Vazir,sans-serif;
+    font-family: Vazir, sans-serif;
     width: 100%;
     height: 95%;
     border-radius: 10px;
@@ -167,6 +170,6 @@ textarea {
     justify-content: center;
 }
 
-.footer{
+.footer {
     padding: 6px;
 }
