@@ -5,6 +5,8 @@ import {
     CardHeader,
     CardText,
     CardTitle,
+    Col,
+    Row,
 } from "react-bootstrap";
 import Navbar from "./navbar";
 import Footer from "./footer";
@@ -22,13 +24,13 @@ export default function Wall2() {
     const [show, setShow] = useState(true);
 
     /*  useEffect(() => {
-                                                                              axios.get(apiURL + "/wall/get-api").then(
-                                                                                (response) => {
-                                                                                  setWallValue(response.data.text);
-                                                                                },
-                                                                                [formInput],
-                                                                              );
-                                                                            });*/
+                                                                                                                  axios.get(apiURL + "/wall/get-api").then(
+                                                                                                                    (response) => {
+                                                                                                                      setWallValue(response.data.text);
+                                                                                                                    },
+                                                                                                                    [formInput],
+                                                                                                                  );
+                                                                                                                });*/
     function handel_click() {
         setFormInput(inputRef.current.value);
         axios
@@ -85,7 +87,7 @@ export default function Wall2() {
             <Navbar />
             <AlertCheck />
             <div className={"main_container_page_wall"}>
-                <div className={"card"}>
+                <Row xs="2">
                     <Cards
                         color={"secondary"}
                         wallValue={
@@ -115,7 +117,7 @@ export default function Wall2() {
                             </motion.button>
                         }
                     />
-                </div>
+                </Row>
             </div>
             <Footer />
         </div>

@@ -74,14 +74,6 @@ a {
     background-image: url("./images/image_wall.jpg");
 }
 
-.card {
-    @media screen (min-width: 330 px) and (max-hight: 800 px) {
-
-    display: flex;
-    width: 100px;
-}
-}
-
 
 .wall_container {
     font-family: Vazir, sans-serif;
