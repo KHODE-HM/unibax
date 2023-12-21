@@ -87,7 +87,7 @@ export default function Wall2() {
             <Navbar />
             <AlertCheck />
             <div className={"main_container_page_wall"}>
-                <Row xs="2">
+                <Row sm='1'md='8'>
                     <Cards
                         color={"secondary"}
                         wallValue={
