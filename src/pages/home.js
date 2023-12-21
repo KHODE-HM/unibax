@@ -70,7 +70,7 @@ export default function Home() {
         },
     ];
     useEffect(() => {
-        let starterPoint = new Date("2023-09-20T16:00:00.000Z").getTime();
+        let starterPoint = new Date("2023-09-21T23:59:59.000Z").getTime();
         let todayDate = new Date().getTime();
         let diffDaysPerMSec = new Date(todayDate - starterPoint).getTime();
         setWeekTypeObj({
