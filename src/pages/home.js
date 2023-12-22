@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import Alert from "react-bootstrap/Alert";
 import {
     AlertHeading,
-    ProgressBar,
+    ProgressBar, Row,
     ToastBody,
     ToastHeader,
 } from "react-bootstrap";
@@ -70,7 +70,7 @@ export default function Home() {
         },
     ];
     useEffect(() => {
-        let starterPoint = new Date("2023-09-21T23:59:59.000Z").getTime();
+        let starterPoint = new Date("2023-09-22T23:59:59.000Z").getTime();
         let todayDate = new Date().getTime();
         let diffDaysPerMSec = new Date(todayDate - starterPoint).getTime();
         setWeekTypeObj({
@@ -106,8 +106,8 @@ export default function Home() {
 
     function Toastmessage({ weekInfo = null, txt, txt2 }) {
         return (
-            <div style={{ minHeight: "240px", textAlign: "center" }}>
-                <Toast className={"d-inline-block m-lg-5 bg-dark"}>
+            < div style={{ minHeight: "240px", textAlign: "center" }}>
+                <Toast className={"d-sm-inline-block bg-dark"}>
                     <ToastHeader
                         closeButton={false}
                         className={"bg-dark"}
@@ -211,20 +211,20 @@ export default function Home() {
                             /16
                         </div>
                     </div>
-                    <div style={{ color: "white" }}>
+                    <Row >
+                    <div style={{color: "white" }}>
                         <Toastmessage
                             weekInfo={weekTypeObj?.weekCount}
                             txt={"  این هفته "}
                             txt2={"است"}
                         />
-                    </div>
-                    <div>
                         <Toastmessage
                             weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
                             txt={"  این هفته  هفته"}
                             txt2={"میباشد"}
                         />
                     </div>
+                    </Row>
                 </div>
                 <div>
                     <Carousel
