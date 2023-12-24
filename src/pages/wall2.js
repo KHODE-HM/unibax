@@ -24,13 +24,12 @@ export default function Wall2() {
     const [show, setShow] = useState(true);
 
     /*  useEffect(() => {
-                                                                                                                  axios.get(apiURL + "/wall/get-api").then(
-                                                                                                                    (response) => {
-                                                                                                                      setWallValue(response.data.text);
-                                                                                                                    },
-                                                                                                                    [formInput],
-                                                                                                                  );
-                                                                                                                });*/
+     axios.get(apiURL + "/wall/get-api").then(
+       (response) => {
+                 setWallValue(response.data.text); },
+                 [formInput],
+                   );
+                  });*/
     function handel_click() {
         setFormInput(inputRef.current.value);
         axios
@@ -45,16 +44,14 @@ export default function Wall2() {
     }
 
     function Cards({ wallValue, Title, SubTitle, color }) {
-        let today = new Date().toDateString();
-        let todayTime = today.toString();
-
+        let today = new Date().toString();
         return (
-            <div>
-                <Card className={"mb-2"} bg={color}>
+            <div >
+                <Card className={"mb-2"} bg={color} style={{color:'white'}}>
                     <CardHeader>{Title}</CardHeader>
                     <CardBody>
                         <CardTitle tag="h5">{SubTitle}</CardTitle>
-                        <small>{todayTime}</small>
+                        <small>{today}</small>
                         <CardText>{wallValue}</CardText>
                     </CardBody>
                 </Card>
@@ -85,9 +82,9 @@ export default function Wall2() {
     return (
         <div>
             <Navbar />
-            <AlertCheck />
             <div className={"main_container_page_wall"}>
-                <Row sm='1'md='8'>
+                <Row xl={1} sm={1}>
+                    <AlertCheck />
                     <Cards
                         color={"secondary"}
                         wallValue={

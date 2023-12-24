@@ -104,16 +104,16 @@ export default function Home() {
         }
     }
 
-    function Toastmessage({ weekInfo = null, txt, txt2 }) {
+    function Toastmessage({ weekInfo = null, txt, txt2 ,titleTxt}) {
         return (
             < div style={{ minHeight: "240px", textAlign: "center" }}>
                 <Toast className={"d-sm-inline-block bg-dark"}>
                     <ToastHeader
                         closeButton={false}
                         className={"bg-dark"}
-                        style={{ color: "white" }}
+                        style={{ color: "white",textAlign:'center' }}
                     >
-                        <big>This Week</big>{" "}
+                        <big  >{titleTxt}</big>{" "}
                     </ToastHeader>
                     <ToastBody style={{ color: "white" }}>
                         {txt} {weekInfo} {txt2}
@@ -197,8 +197,9 @@ export default function Home() {
             <div>
                 <Toaster />
                 <Navbar />
-                <AlertCheck />
+                <Row>
                 <div className="week">
+                    <AlertCheck />
                     <div className="progressBarContainer">
                         <div className={"progressBarBackDrop"}>
                             <ProgressBar
@@ -215,11 +216,13 @@ export default function Home() {
                     <div style={{color: "white" }}>
                         <Toastmessage
                             weekInfo={weekTypeObj?.weekCount}
+                            titleTxt={'این هفته'}
                             txt={"  این هفته "}
                             txt2={"است"}
                         />
                         <Toastmessage
                             weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
+                            titleTxt={'This Week'}
                             txt={"  این هفته  هفته"}
                             txt2={"میباشد"}
                         />
@@ -266,6 +269,7 @@ export default function Home() {
                     </div>
                 </div>
                 <Footer />
+                </Row>
             </div>
         );
     } else {
@@ -273,8 +277,8 @@ export default function Home() {
             <div>
                 <Toaster />
                 <Navbar />
-                <AlertCheck />
                 <div className="week">
+                    <AlertCheck />
                     <div className="progressBarContainer">
                         <div className="progressBarBackDrop">
                             <ProgressBar
@@ -291,11 +295,13 @@ export default function Home() {
                 <div className={"toast-pc"}>
                     <Toastmessage
                         weekInfo={weekTypeObj?.weekCount}
+                        titleTxt={'این هفته'}
                         txt={" این هفته "}
                         txt2={"است"}
                     />
                     <Toastmessage
                         weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
+                        titleTxt={'This Week'}ئ
                         txt={" این هفته  هفته"}
                         txt2={"میباشد"}
                     />
@@ -303,7 +309,6 @@ export default function Home() {
                 <div>
                     <div>
                         <Carousel
-                            Title={"در این هفته "}
                             Title2={" رویداد ها"}
                             text={"همایش و رویداد های دانشجویی این هفته"}
                             prop={img}
