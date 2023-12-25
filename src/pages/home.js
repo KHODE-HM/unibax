@@ -197,9 +197,10 @@ export default function Home() {
             <div>
                 <Toaster />
                 <Navbar />
+                <AlertCheck />
                 <Row>
                 <div className="week">
-                    <AlertCheck />
+
                     <div className="progressBarContainer">
                         <div className={"progressBarBackDrop"}>
                             <ProgressBar
