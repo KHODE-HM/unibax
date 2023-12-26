@@ -76,6 +76,7 @@ export default function Carouselll({ props }) {
       >
         <img
           key={item.key}
+          alt={item.altText}
           src={item.src}
           style={{ height: "300px", width: props }}
         />

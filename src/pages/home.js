@@ -8,9 +8,7 @@ import CountUp from "react-countup";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
-import { Row, ProgressBar, Container, Col } from "react-bootstrap";
-
-import Example from "../Components/Carousel";
+import { Row, ProgressBar, Col } from "react-bootstrap";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import Carouselll from "../Components/Carousel";
