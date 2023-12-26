@@ -217,7 +217,7 @@ export default function Home() {
               Paragraph={"همایش ها و رویداد های این هفته"}
               Style={"secondary"}
             />
-            <Carouselll props={"800px"} />
+            <Carouselll props={"400px"} />
           </div>
         </div>
         <div className={"send_box_container_pc"}>
