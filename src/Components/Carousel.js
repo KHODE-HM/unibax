@@ -6,9 +6,9 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
-import pic8 from "../images/pic8.jpg";
-import pic6 from "../images/art2.jpg";
-import pic5 from "../images/art1.jpg";
+import pic2 from "../images/pic8.jpg";
+import pic5 from "../images/art2.jpg";
+import pic1 from "../images/art1.jpg";
 import pic3 from "../images/pic9.jpg";
 import pic4 from "../images/pic10.jpg";
 
@@ -17,13 +17,13 @@ export default function Carouselll({ props }) {
   const img = [
     {
       key: 1,
-      src: pic6,
+      src: pic1,
       altText: "slide 1",
       caption: "slide 1",
     },
     {
       key: 2,
-      src: pic5,
+      src: pic2,
       altText: "slide 2",
       caption: "slide 2",
     },
@@ -41,13 +41,13 @@ export default function Carouselll({ props }) {
     },
     {
       key: 5,
-      src: pic7,
+      src: pic5,
       altText: "slide 5",
       caption: "slide 5",
     },
     {
       key: 5,
-      src: pic8,
+      src: pic7,
       altText: "slide 6",
       caption: "slide 6",
     },
