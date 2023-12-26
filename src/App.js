@@ -7,7 +7,7 @@ import News from "./pages/News";
 import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
 import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   const [width, setWidth] = useState(window.innerWidth);
