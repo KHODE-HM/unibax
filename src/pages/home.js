@@ -96,25 +96,20 @@ export default function Home() {
               /16
             </div>
           </div>
-          <div>
-            <Row>
-              <Col style={{ color: "white" }}>
-                <Toastmessage
-                  weekInfo={weekTypeObj?.weekCount}
-                  titleTxt={"این هفته"}
-                  txt={"  این هفته "}
-                  txt2={"است"}
-                />
-              </Col>
-              <Col>
-                <Toastmessage
-                  weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
-                  titleTxt={"This Week"}
-                  txt={"  این هفته  هفته"}
-                  txt2={"میباشد"}
-                />
-              </Col>
-            </Row>
+          <div style={{ color: "white" }}>
+            <Toastmessage
+              weekInfo={weekTypeObj?.weekCount}
+              titleTxt={"این هفته"}
+              txt={"  این هفته "}
+              txt2={"است"}
+            />
+
+            <Toastmessage
+              weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
+              titleTxt={"This Week"}
+              txt={"  این هفته  هفته"}
+              txt2={"میباشد"}
+            />
           </div>
         </div>
         <div style={{ textAlign: "center" }} className={"Carousel"}>

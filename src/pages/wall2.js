@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardText,
   CardTitle,
-  Col,
   Row,
 } from "react-bootstrap";
 import Navbar from "./navbar";
@@ -24,12 +23,14 @@ export default function Wall2() {
   const [show, setShow] = useState(true);
 
   /*  useEffect(() => {
-         axios.get(apiURL + "/wall/get-api").then(
-           (response) => {
-                     setWallValue(response.data.text); },
-                     [formInput],
-                       );
-                      });*/
+        axios.get(apiURL + "/wall/get-api").then(
+          (response) => {
+            setWallValue(response.data.text);
+          },
+          [formInput],
+        );
+      });*/
+
   function handel_click() {
     setFormInput(inputRef.current.value);
     axios

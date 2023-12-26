@@ -1,7 +1,7 @@
-import '../App.css'
-import {useContext,useState} from "react";
-import {isMobileContext} from "../context";
-import {motion} from "framer-motion";
+import "../App.css";
+import { useContext, useState } from "react";
+import { isMobileContext } from "../context";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const Mobile = useContext(isMobileContext);
@@ -34,7 +34,7 @@ export default function Navbar() {
             <div
               style={{
                 fontFamily: "cursive",
-                fontSize: "2rem",
+                fontSize: "1.75rem",
                 color: "white",
               }}
             >
@@ -46,6 +46,3 @@ export default function Navbar() {
     </>
   );
 }
-
-
-
