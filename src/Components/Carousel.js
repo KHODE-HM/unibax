@@ -87,7 +87,6 @@ export default function Carouselll({ props }) {
           src={item.src}
           style={{ height: "300px", width: props }}
         />
-        <CarouselCaption className="text-danger" captionText={item.caption} />
       </CarouselItem>
     );
   });

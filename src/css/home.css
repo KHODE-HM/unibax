@@ -98,7 +98,7 @@ body {
 }
 
 .send_box_pc_left {
-    @media screen (max-width: 1680 px) and (min-width: 912 px) {
+    @media  (min-width: 1000px)and(max-width:2000px) {
     height: 85%;
     width: 50%;
     overflow: hidden;
@@ -226,9 +226,16 @@ body {
     background-color: #222831;
 }
 
-.toast-pc {
-    background-color: #222831;
+.ToastContainer{
+    color: #222831;
     text-align: center;
-    overflow: hidden;
-
+    background-color: #222831;
+}
+.CarouselContainer{
+    margin-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+#ToastHeader b{
+text-align: center;
 }

@@ -96,7 +96,7 @@ export default function Home() {
               /16
             </div>
           </div>
-          <div style={{ color: "white" }}>
+          <div className="ToastContainer" style={{ color: "white" }}>
             <Toastmessage
               weekInfo={weekTypeObj?.weekCount}
               titleTxt={"این هفته"}
@@ -112,7 +112,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div style={{ textAlign: "center" }} className={"Carousel"}>
+        <div style={{ textAlign: "center" }} className="CarouselContainer">
           <AlertCheck
             dismiss={false}
             Title={"رویداد ها"}
@@ -189,7 +189,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={"toast-pc"}>
+        <div className={"ToastContainer"}>
           <Row>
             <Col>
               <Toastmessage
@@ -210,7 +210,7 @@ export default function Home() {
           </Row>
         </div>
         <div>
-          <div style={{ textAlign: "center" }}>
+          <div className="CarouselContainer">
             <AlertCheck
               dismiss={false}
               Title={"رویداد ها"}
