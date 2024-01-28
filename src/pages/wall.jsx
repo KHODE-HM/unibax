@@ -1,6 +1,6 @@
-import Navbar from "./navbar";
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer";
 import { useEffect, useRef, useState } from "react";
-import Footer from "./footer";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 export default function Wall() {
@@ -43,17 +43,17 @@ export default function Wall() {
       <div className={"main_container_page_wall"}>
         <div className={"wall_container"}>
           <div className={"wall-explain"}>
-            <motion.p variants={wallText} animate={{ scale: [0, 1, 0.75, 1] }}>
+            <p variants={wallText} animate={{ scale: [0, 1, 0.75, 1] }}>
               روی دیوار بنویس!!
-            </motion.p>
+            </p>
             <br />
-            <motion.p>
+            <p>
               {" "}
               &nbsp;&nbsp; اخرین نوشته روی دیوار نمایش داده میشه <br />
               ایده اصلی از مستند "نوشتن بر شهر" گرفته شده(کیوان کریمی)
               <br />
               <br />
-            </motion.p>
+            </p>
           </div>
           <div className={"wall"}>
             <p className={"wall-text"}>{wallValue}</p>
@@ -67,14 +67,9 @@ export default function Wall() {
                 ref={inputRef}
                 placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
               />
-              <motion.button
-                className={"save-button"}
-                onClick={handel_click}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+              <button className={"save-button"} onClick={handel_click}>
                 save
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>

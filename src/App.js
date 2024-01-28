@@ -6,25 +6,22 @@ import Wall from "./pages/wall";
 import News from "./pages/News";
 import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
-import { useEffect, useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { StrictMode, useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 
 export default function App() {
   const [width, setWidth] = useState(window.innerWidth);
-
+  const [Users, setUsers] = useState([]);
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
   }
-
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
   }, []);
-
   const isMobile = width <= 768;
-
   return (
     <BrowserRouter>
       <isMobileContext.Provider value={isMobile}>
@@ -40,4 +37,8 @@ export default function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

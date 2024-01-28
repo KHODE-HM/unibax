@@ -1,10 +1,7 @@
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { motion } from "framer-motion";
-import Card from "react-bootstrap/Card";
 import "../css/news.css";
-import { CardImg, CardImgOverlay, CardText, CardTitle } from "react-bootstrap";
-
+import Card from "@material-tailwind/react/theme/components/card";
 export default function News() {
   const Text = "UniBax  ....".split("");
 

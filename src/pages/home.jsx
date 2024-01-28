@@ -1,7 +1,8 @@
-import Navbar from "./navbar";
-import "../css/home.css";
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer";
+import ProgressBar from "@material-tailwind/react/components/Progress";
+// import "../css/home.css";
 import ideaMan from "../images/idea_man.png";
-import Footer from "./footer";
 import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
 import CountUp from "react-countup";
@@ -10,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import Carouselll from "../Components/Carousel";
-
+import { Button } from "@material-tailwind/react";
 export default function Home() {
   let apiURL = "http://127.0.0.1:8000/";
   const Mobile = useContext(isMobileContext);
@@ -137,14 +138,14 @@ export default function Home() {
             />
             <div className={"input_label"}> نظرت برای سایت:</div>
             <textarea></textarea>
-            <motion.button
+            <button
               onClick={submit_comment}
               className={"submit_button"}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               ارسال
-            </motion.button>
+            </button>
             <div className={"image_container"}>
               <img src={ideaMan} alt={"ideaMan"} className={"idea_image_man"} />
             </div>
@@ -174,12 +175,10 @@ export default function Home() {
         <div className="week">
           <div className="progressBarContainer">
             <div className="progressBarBackDrop">
-              <Col>
-                <ProgressBar
-                  animated
-                  now={(weekTypeObj?.weekCount / 16) * 100}
-                ></ProgressBar>
-              </Col>
+              <ProgressBar
+                animated
+                now={(weekTypeObj?.weekCount / 16) * 100}
+              ></ProgressBar>
             </div>
             <div className="progressBarPercentage">
               <CountUp end={weekTypeObj?.weekCount} />
@@ -187,25 +186,23 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={"ToastContainer"}>
-          <Row>
-            <Col>
-              <Toastmessage
-                weekInfo={weekTypeObj?.weekCount}
-                titleTxt={"این هفته"}
-                txt={" این هفته "}
-                txt2={"است"}
-              />
-            </Col>
-            <Col>
-              <Toastmessage
-                weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
-                titleTxt={"This Week"}
-                txt={" این هفته  هفته"}
-                txt2={"میباشد"}
-              />
-            </Col>
-          </Row>
+        <div
+          className={
+            "p-6 max-w-sm mx-auto rounded-xl shadow-lg flex items-center space-x-4"
+          }
+        >
+          <Toastmessage
+            weekInfo={weekTypeObj?.weekCount}
+            titleTxt={"این هفته"}
+            txt={" این هفته "}
+            txt2={"است"}
+          />
+          <Toastmessage
+            weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
+            titleTxt={"This Week"}
+            txt={" این هفته  هفته"}
+            txt2={"میباشد"}
+          />
         </div>
         <div>
           <div className="CarouselContainer">
@@ -213,9 +210,9 @@ export default function Home() {
               dismiss={false}
               Title={"رویداد ها"}
               Paragraph={"همایش ها و رویداد های این هفته"}
-              Style={"secondary"}
+              Style={"white"}
             />
-            <Carouselll props={"400px"} />
+            <Carouselll props={"100%"} />
           </div>
         </div>
         <div className={"send_box_container_pc"}>
@@ -249,14 +246,14 @@ export default function Home() {
                     className={"text_area_comment"}
                   ></textarea>
                 </div>
-                <motion.button
+                <button
                   onClick={submit_comment}
                   className={"submit_button"}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   ارسال
-                </motion.button>
+                </button>
               </div>
               <div className={"send_box_pc_left"}>
                 <img src={ideaMan} alt={"ideaMan"} className={"image_pc"} />

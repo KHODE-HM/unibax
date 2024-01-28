@@ -1,20 +1,7 @@
-import Card from "react-bootstrap/Card";
-import {
-  AlertHeading,
-  CardBody,
-  CardHeader,
-  CardText,
-  CardTitle,
-  Row,
-} from "react-bootstrap";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
-import Alert from "react-bootstrap/Alert";
-
 export default function Wall2() {
   const inputRef = useRef(null);
   let apiURL = "http://127.0.0.1:8000/";
