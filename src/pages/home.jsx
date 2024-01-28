@@ -3,7 +3,7 @@ import Footer from "../Components/footer";
 import ProgressBar from "@material-tailwind/react/components/Progress";
 // import "../css/home.css";
 import ideaMan from "../images/idea_man.png";
-import { useContext, useEffect, useRef, useState } from "react";
+import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
 import CountUp from "react-countup";
 import axios from "axios";
@@ -12,6 +12,8 @@ import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import Carouselll from "../Components/Carousel";
 import { Button } from "@material-tailwind/react";
+import Loading from "../Components/loading";
+import { Typography } from "@material-tailwind/react";
 export default function Home() {
   let apiURL = "http://127.0.0.1:8000/";
   const Mobile = useContext(isMobileContext);
@@ -62,6 +64,57 @@ export default function Home() {
     setNameComment(e.target.value);
   }
 
+  function Loading() {
+    return (
+      <div className="max-w-full animate-pulse">
+        <Typography
+          as="div"
+          variant="h1"
+          className="mb-4 h-3 w-56 rounded-full bg-gray-300"
+        >
+          &nbsp;
+        </Typography>
+        <Typography
+          as="div"
+          variant="paragraph"
+          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
+        >
+          &nbsp;
+        </Typography>
+        <Typography
+          as="div"
+          variant="paragraph"
+          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
+        >
+          &nbsp;
+        </Typography>
+        <Typography
+          as="div"
+          variant="paragraph"
+          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
+        >
+          &nbsp;
+        </Typography>
+        <Typography
+          as="div"
+          variant="paragraph"
+          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
+        >
+          &nbsp;
+        </Typography>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {" "}
+      <Navbar />
+      <AlertCheck />
+      <Carouselll />
+    </>
+  );
+  /*
   // page on mobile mod
   if (Mobile) {
     return (
@@ -265,4 +318,5 @@ export default function Home() {
       </div>
     );
   }
+  */
 }
