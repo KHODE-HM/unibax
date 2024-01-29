@@ -10,10 +10,8 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
-import Carouselll from "../Components/Carousel";
-import { Button } from "@material-tailwind/react";
-import Loading from "../Components/loading";
 import { Typography } from "@material-tailwind/react";
+import HomeCarousel from "../Components/Carousel";
 export default function Home() {
   let apiURL = "http://127.0.0.1:8000/";
   const Mobile = useContext(isMobileContext);
@@ -64,56 +62,57 @@ export default function Home() {
     setNameComment(e.target.value);
   }
 
-  function Loading() {
+  if (Mobile) {
     return (
-      <div className="max-w-full animate-pulse">
-        <Typography
-          as="div"
-          variant="h1"
-          className="mb-4 h-3 w-56 rounded-full bg-gray-300"
-        >
-          &nbsp;
-        </Typography>
-        <Typography
-          as="div"
-          variant="paragraph"
-          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
-        >
-          &nbsp;
-        </Typography>
-        <Typography
-          as="div"
-          variant="paragraph"
-          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
-        >
-          &nbsp;
-        </Typography>
-        <Typography
-          as="div"
-          variant="paragraph"
-          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
-        >
-          &nbsp;
-        </Typography>
-        <Typography
-          as="div"
-          variant="paragraph"
-          className="mb-2 h-2 w-72 rounded-full bg-gray-300"
-        >
-          &nbsp;
-        </Typography>
-      </div>
+      <>
+        <div className="bg-white dark:bg-black">
+          {" "}
+          <Toaster />
+          <Navbar />
+          <AlertCheck
+            Title={"سایت در حال طراحی و توسعه است"}
+            Paragraph={
+              "ایده اصلی سایت این بود که بچه ها لیست واحد هایی که برداشتن رو به اشتراک بزارن تا همه بتونن ببینن که ، کی ، چی برداشته و بتونن بادوستاشون درس بردارن و دور هم دوران شادی داشته باشن"
+            }
+            Paragraph2={
+              "ولی بنا به دلایلی (میدونین یکم پیچیدس ما هم انگیزمون کمه)"
+            }
+            Paragraph3={
+              "این ایده هنوز عملی نشده یک قسمت اخر این صفحه اضافه شده تا شما ایده\n" +
+              " هاتونو به ما بگید"
+            }
+            dismiss={true}
+          />
+          <HomeCarousel />
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="bg-white dark:bg-black">
+          {" "}
+          <Toaster />
+          <Navbar />
+          <AlertCheck
+            Title={"سایت در حال طراحی و توسعه است"}
+            Paragraph={
+              "ایده اصلی سایت این بود که بچه ها لیست واحد هایی که برداشتن رو به اشتراک بزارن تا همه بتونن ببینن که ، کی ، چی برداشته و بتونن بادوستاشون درس بردارن و دور هم دوران شادی داشته باشن"
+            }
+            Paragraph2={
+              "ولی بنا به دلایلی (میدونین یکم پیچیدس ما هم انگیزمون کمه)"
+            }
+            Paragraph3={
+              "این ایده هنوز عملی نشده یک قسمت اخر این صفحه اضافه شده تا شما ایده\n" +
+              " هاتونو به ما بگید"
+            }
+            dismiss={true}
+          />
+          <HomeCarousel />
+        </div>
+      </>
     );
   }
-
-  return (
-    <>
-      {" "}
-      <Navbar />
-      <AlertCheck />
-      <Carouselll />
-    </>
-  );
   /*
   // page on mobile mod
   if (Mobile) {

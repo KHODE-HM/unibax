@@ -20,20 +20,20 @@ export default function Wall2() {
           },
           [formInput],
         );
-      });*/
-  // const supabase = createClient(
-  //   "https://diyoxrrtujlpkdftwlhk.supabase.co",
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpeW94cnJ0dWpscGtkZnR3bGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU1NzU1MDgsImV4cCI6MjAyMTE1MTUwOH0.zPGWMhTfUZI6_TCxCd_XNacVhLBFYXKcCZH2IqWhjPs"
-  // );
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
-  // async function getUsers() {
-  //   const { data } = await supabase.from("Users").select();
-  //   console.log("++++++++++++++++++++++++++++++++++");
-  //   console.log(d);
-  //   console.log("++++++++++++++++++++++++++++++++++");
-  // }
+      });
+  const supabase = createClient(
+    "https://diyoxrrtujlpkdftwlhk.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpeW94cnJ0dWpscGtkZnR3bGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU1NzU1MDgsImV4cCI6MjAyMTE1MTUwOH0.zPGWMhTfUZI6_TCxCd_XNacVhLBFYXKcCZH2IqWhjPs"
+  );
+  useEffect(() => {
+    getUsers();
+  }, []);
+  async function getUsers() {
+    const { data } = await supabase.from("Users").select();
+    console.log("++++++++++++++++++++++++++++++++++");
+    console.log(d);
+    console.log("++++++++++++++++++++++++++++++++++");
+  }*/
   function handel_click() {
     setFormInput(inputRef.current.value);
     axios
@@ -51,7 +51,7 @@ export default function Wall2() {
     let today = new Date().toString();
     return (
       <div>
-        <Card bg={color} style={{ color: "white" }}>
+        <Card className={"bg-cyan-900 text-center"}>
           <Typography>{Title}</Typography>
           <div>
             <Typography tag="h5">{SubTitle}</Typography>
@@ -73,7 +73,7 @@ export default function Wall2() {
               شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجا برای همه
               اشتراک بزارید "
       />
-      <div className={"main_container_page_wall"}>
+      <div className={""}>
         <Cards
           color={"secondary"}
           wallValue={

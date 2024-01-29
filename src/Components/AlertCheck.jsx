@@ -18,15 +18,22 @@ function IconOutlined() {
     </svg>
   );
 }
-
-export default function AlertCheck({ Title, Paragraph = "", Paragraph2 = "" }) {
+export default function AlertCheck({
+  Title,
+  Paragraph = "",
+  Paragraph2 = "",
+  Paragraph3 = "",
+}) {
   return (
     <div className="flex w-full flex-col gap-2">
       <Alert icon={<IconOutlined />} className="text-center" variant="filled">
         <Typography className="font-medium">{Title}</Typography>
         <ul className="mt-2 ml-2 list-inside list-disc">
           {Paragraph}
+          <br />
           {Paragraph2}
+          <br />
+          {Paragraph3}
         </ul>
       </Alert>
     </div>

@@ -8,7 +8,6 @@ import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
 import { StrictMode, Suspense, useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import Loading from "./Components/loading";
 //supabase
 // const url = process.env.React_App_Url;
 // const anon = process.env.Reacr_App_Anon;
@@ -28,16 +27,18 @@ export default function App() {
   }, []);
   const isMobile = width <= 768;
   return (
-    <BrowserRouter>
-      <isMobileContext.Provider value={isMobile}>
-        <Routes>
-          <Route path={"/"} element={<Home />} />
-          {/* <Route path="/wall" element={<Wall />} />*/}
-          <Route path="/news" element={<News />} />
-          <Route path="/wall2" element={<Wall2 />} />
-        </Routes>
-      </isMobileContext.Provider>
-    </BrowserRouter>
+    <Suspense fallback={"<Loading/>"}>
+      <BrowserRouter>
+        <isMobileContext.Provider value={isMobile}>
+          <Routes>
+            <Route path={"/"} element={<Home />} />
+            {/* <Route path="/wall" element={<Wall />} />*/}
+            <Route path="/news" element={<News />} />
+            <Route path="/wall2" element={<Wall2 />} />
+          </Routes>
+        </isMobileContext.Provider>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
