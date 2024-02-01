@@ -25,17 +25,24 @@ export default function AlertCheck({
   Paragraph3 = "",
 }) {
   return (
-    <div className="flex w-full flex-col gap-2">
-      <Alert icon={<IconOutlined />} className="text-center" variant="filled">
-        <Typography className="font-medium">{Title}</Typography>
-        <ul className="mt-2 ml-2 list-inside list-disc">
-          {Paragraph}
-          <br />
-          {Paragraph2}
-          <br />
-          {Paragraph3}
-        </ul>
-      </Alert>
-    </div>
+    <>
+      <div className="flex w-full flex-col ">
+        <Alert
+          icon={<IconOutlined />}
+          className="text-justify bg-white"
+          variant="ghost"
+        >
+          <Typography className="font-bold">{Title}</Typography>
+          <ul className="mt-2  list-inside list-disc">
+            <Typography>{Paragraph}</Typography>
+
+            <br />
+            {Paragraph2}
+            <br />
+            {Paragraph3}
+          </ul>
+        </Alert>
+      </div>
+    </>
   );
 }

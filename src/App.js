@@ -27,18 +27,16 @@ export default function App() {
   }, []);
   const isMobile = width <= 768;
   return (
-    <Suspense fallback={"<Loading/>"}>
-      <BrowserRouter>
-        <isMobileContext.Provider value={isMobile}>
-          <Routes>
-            <Route path={"/"} element={<Home />} />
-            {/* <Route path="/wall" element={<Wall />} />*/}
-            <Route path="/news" element={<News />} />
-            <Route path="/wall2" element={<Wall2 />} />
-          </Routes>
-        </isMobileContext.Provider>
-      </BrowserRouter>
-    </Suspense>
+    <BrowserRouter>
+      <isMobileContext.Provider value={isMobile}>
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          {/* <Route path="/wall" element={<Wall />} />*/}
+          <Route path="/news" element={<News />} />
+          <Route path="/wall2" element={<Wall2 />} />
+        </Routes>
+      </isMobileContext.Provider>
+    </BrowserRouter>
   );
 }
 

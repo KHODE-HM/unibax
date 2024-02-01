@@ -82,20 +82,23 @@ export default function Home() {
           }
           dismiss={true}
         />
-        <div className="week">
-          <div className="progressBarContainer">
-            <div className={"progressBarBackDrop"}>
+        <div className="">
+          <div className="">
+            <div className={""}>
               <ProgressBar
                 animated
                 now={(weekTypeObj?.weekCount / 16) * 100}
               ></ProgressBar>
             </div>
-            <div className="progressBarPercentage">
+            <div className="">
               <CountUp end={weekTypeObj?.weekCount} />
               /16
             </div>
           </div>
-          <div className="rounded-md justify-center gap-3 animate-pulse" style={{ color: "white" }}>
+          <div
+            className="rounded-md justify-center gap-3 animate-pulse"
+            style={{ color: "white" }}
+          >
             <Toastmessage
               weekInfo={weekTypeObj?.weekCount}
               titleTxt={"این هفته"}
@@ -118,7 +121,7 @@ export default function Home() {
             Paragraph={"همایش ها و رویداد های این هفته"}
             Style={"secondary"}
           />
-          <Carouselll props={"auto"} />
+          <HomeCarousel props={"auto"} />
         </div>
         <div className={"send_idea"}>
           <div className={"send_idea_box"}>
@@ -215,7 +218,7 @@ export default function Home() {
               Paragraph={"همایش ها و رویداد های این هفته"}
               Style={"white"}
             />
-            <Carouselll props={"100%"} />
+            <HomeCarousel props={"100%"} />
           </div>
         </div>
         <div className={"send_box_container_pc"}>
