@@ -1,4 +1,5 @@
 import { Alert, Typography } from "@material-tailwind/react";
+import { useState } from "react";
 
 function IconOutlined() {
   return (
@@ -24,25 +25,30 @@ export default function AlertCheck({
   Paragraph2 = "",
   Paragraph3 = "",
 }) {
+  const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="flex w-full flex-col ">
-        <Alert
-          icon={<IconOutlined />}
-          className="text-justify bg-white"
-          variant="ghost"
-        >
-          <Typography className="font-bold">{Title}</Typography>
-          <ul className="mt-2  list-inside list-disc">
-            <Typography>{Paragraph}</Typography>
+      {!dismiss && (
+        <div className="flex w-full flex-col ">
+          <Alert
+            open={dismiss}
+            onClose={() => setDismiss(false)}
+            icon={<IconOutlined />}
+            className="text-justify bg-white"
+            variant="ghost"
+          >
+            <Typography className="font-bold">{Title}</Typography>
+            <ul className="mt-2  list-inside list-disc">
+              <Typography>{Paragraph}</Typography>
 
-            <br />
-            {Paragraph2}
-            <br />
-            {Paragraph3}
-          </ul>
-        </Alert>
-      </div>
+              <br />
+              {Paragraph2}
+              <br />
+              {Paragraph3}
+            </ul>
+          </Alert>
+        </div>
+      )}
     </>
   );
 }
