@@ -1,11 +1,11 @@
 import { Skeleton } from "../Components/skeleton";
-import Textarea from "@material-tailwind/react";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import HomeCarousel from "../Components/Carousel";
-import { Progress, Typography, Button } from "@material-tailwind/react";
+import { Textareas } from "../Components/TextArea";
+import { Progress, Typography, Button, Input } from "@material-tailwind/react";
 import ideaMan from "../images/idea_man.png";
 import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
@@ -85,8 +85,13 @@ export default function Home() {
         />
         <div>
           <div>
-            <div>
-              <Progress value={passedBy} label={"Compelated"} c></Progress>
+            <div className="pt-5 ">
+              <Progress
+                value={passedBy}
+                label={"Compelated"}
+                variant="filled"
+                size="lg"
+              ></Progress>
             </div>
             {/* <div>
               <CountUp end={weekTypeObj?.weekCount} />
@@ -114,34 +119,36 @@ export default function Home() {
             Title={"رویداد ها"}
             Paragraph={"همایش ها و رویداد های این هفته"}
           />
-          <HomeCarousel />
+          {/* <HomeCarousel /> */}
         </div>
         <div>
-          <div>
-            <div> نام:</div>
-            <input
+          <div className="mt-10 rounded-xl shadow-white p-6">
+            <div className="text-right text-xl mb-4 pt-4"> نام:</div>
+            <Input
               onChange={(e) => {
                 handelChangeNameComment(e);
               }}
               type={"text"}
             />
-            <div> ایمیل:</div>
-            <input
+            <div className="text-right text-xl mb-4 pt-4"> ایمیل:</div>
+            <Input
               onChange={(e) => {
                 handelChangeEmailComment(e);
               }}
               type={"text"}
             />
-            <div className={"max-w-14 h-5 text-center"}> نظرت برای سایت:</div>
-            <Textarea />
-            <Button onClick={submit_comment}>ارسال</Button>
-            <div>
-              <img
-                src={ideaMan}
-                alt={"ideaMan"}
-                className={"container float-left"}
-              />
-            </div>
+            <div className="text-right text-xl mb-4 pt-4"> نظرت برای سایت:</div>
+            <Textareas />
+            <Button className={"justify-end "} onClick={submit_comment}>
+              ارسال
+            </Button>
+          </div>
+          <div>
+            <img
+              src={ideaMan}
+              alt={"ideaMan"}
+              className={"container w-full mt-6 divide-x-reverse"}
+            />
           </div>
           <Footer />
         </div>

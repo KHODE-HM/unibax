@@ -1,6 +1,6 @@
 import { Textarea, Button, IconButton } from "@material-tailwind/react";
 
-export function Textarea() {
+export function Textareas() {
   return (
     <div className="relative w-[32rem]">
       <Textarea variant="static" placeholder="Your Comment" rows={8} />

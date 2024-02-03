@@ -2,9 +2,20 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { Card, Typography } from "@material-tailwind/react";
+
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Avatar,
+  Button,
+  Tooltip,
+} from "@material-tailwind/react";
 import AlertCheck from "../Components/AlertCheck";
 import toast from "react-hot-toast";
+import Text from "@material-tailwind/react/components/Textarea";
 import { createClient } from "@supabase/supabase-js";
 export default function Wall2() {
   const inputRef = useRef(null);
@@ -51,7 +62,7 @@ export default function Wall2() {
     let today = new Date().toString();
     return (
       <div>
-        <Card className={"bg-cyan-900 text-center"}>
+        <Card className={"bg-blue-gray-900 mb-5 rounded-lg text-center"}>
           <Typography>{Title}</Typography>
           <div>
             <Typography tag="h5">{SubTitle}</Typography>
@@ -63,18 +74,47 @@ export default function Wall2() {
     );
   }
 
+  function BlogCard({ Title, SubTitle, wallValue }) {
+    return (
+      <Card className="max-w-[24rem] overflow-hidden">
+        <CardHeader
+          floated={false}
+          shadow={false}
+          color="transparent"
+          className="m-0 rounded-none"
+        >
+          <img
+            src="https://picsum.photos/400/400?grayscale"
+            alt="ui/ux review check"
+          />
+        </CardHeader>
+        <CardBody>
+          <Typography variant="h4" color="blue-gray">
+            {Title}
+          </Typography>
+          <Typography variant="lead" color="gray" className="mt-3 font-normal">
+            &apos;{SubTitle}
+          </Typography>
+        </CardBody>
+        <CardFooter className="flex items-center justify-between">
+          <Typography className="font-normal">{wallValue}</Typography>
+        </CardFooter>
+      </Card>
+    );
+  }
   return (
-    <div>
-      <Navbar />
-      <AlertCheck
-        Title={"این صفحه در حال تکمیل میباشد "}
-        Paragraph="به صفحه وال خوش آمدید"
-        Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
+    <>
+      <div>
+        <Navbar />
+        <AlertCheck
+          Title={"این صفحه در حال تکمیل میباشد "}
+          Paragraph="به صفحه وال خوش آمدید"
+          Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
               شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجا برای همه
               اشتراک بزارید "
-      />
-      <div className={""}>
-        <Cards
+        />
+        <div className={"p-6 mt-6 "}>
+          {/* <Cards
           color={"secondary"}
           wallValue={
             "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
@@ -86,20 +126,35 @@ export default function Wall2() {
           color={"secondary"}
           Title={"تو هم یادگاریتو بنویس"}
           SubTitle={
-            <textarea
+            <Text
+              size="sm"
               ref={inputRef}
-              className={"textarea "}
               placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
-            />
+            ></Text>
           }
-          wallValue={
-            <button className={"save-button"} onClick={handel_click}>
-              save
-            </button>
-          }
-        />
+          wallValue={<Button onClick={handel_click}>save</Button>}
+        /> */}
+          <BlogCard
+            wallValue={
+              "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
+            }
+            SubTitle={"اولین یادگاری من"}
+            Title={"first Wall Text"}
+          />
+          <BlogCard
+            Title={"تو هم یادگاریتو بنویس"}
+            SubTitle={
+              <Text
+                size="sm"
+                ref={inputRef}
+                placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
+              ></Text>
+            }
+            wallValue={<Button onClick={handel_click}>save</Button>}
+          />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

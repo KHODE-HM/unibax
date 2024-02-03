@@ -5,10 +5,8 @@ function IconOutlined() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
+      fill="currentColor"
       className="h-6 w-6"
     >
       <path
@@ -28,27 +26,24 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      {!dismiss && (
-        <div className="flex w-full flex-col ">
-          <Alert
-            open={dismiss}
-            onClose={() => setDismiss(false)}
-            icon={<IconOutlined />}
-            className="text-justify bg-white"
-            variant="ghost"
-          >
-            <Typography className="font-bold">{Title}</Typography>
-            <ul className="mt-2  list-inside list-disc">
-              <Typography>{Paragraph}</Typography>
+      <div className="mt-2 rounded-xl p-6  shadow-white">
+        <Alert
+          icon={<IconOutlined />}
+          open={dismiss}
+          onClose={() => setDismiss(false)}
+          className="text-justify] justify-evenly bg-white-50"
+        >
+          <Typography className="font-black">{Title}</Typography>
+          <ul className="mt-2  list-inside list-disc">
+            <Typography>{Paragraph}</Typography>
 
-              <br />
-              {Paragraph2}
-              <br />
-              {Paragraph3}
-            </ul>
-          </Alert>
-        </div>
-      )}
+            <br />
+            {Paragraph2}
+            <br />
+            {Paragraph3}
+          </ul>
+        </Alert>
+      </div>
     </>
   );
 }
