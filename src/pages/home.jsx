@@ -122,7 +122,7 @@ export default function Home() {
           {/* <HomeCarousel /> */}
         </div>
         <div>
-          <div className="mt-10 rounded-xl shadow-white p-6">
+          <div className="mt-10 rounded-xl bg-blue-gray-50 shadow-white p-6">
             <div className="text-right text-xl mb-4 pt-4"> نام:</div>
             <Input
               onChange={(e) => {

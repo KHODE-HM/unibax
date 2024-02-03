@@ -2,8 +2,8 @@ import { Textarea, Button, IconButton } from "@material-tailwind/react";
 
 export function Textareas() {
   return (
-    <div className="relative w-[32rem]">
-      <Textarea variant="static" placeholder="Your Comment" rows={8} />
+    <div className="relative w-[20rem]">
+      <Textarea variant="static" placeholder="نظرتو اینجا تایپ کن" rows={8} />
       <div className="flex w-full justify-between py-1.5">
         <IconButton variant="text" color="blue-gray" size="sm">
           <svg
@@ -21,14 +21,14 @@ export function Textareas() {
             />
           </svg>
         </IconButton>
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           <Button size="sm" color="red" variant="text" className="rounded-md">
             Cancel
           </Button>
           <Button size="sm" className="rounded-md">
             Post Comment
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
