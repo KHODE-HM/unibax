@@ -77,7 +77,7 @@ export default function Wall2() {
 
   function BlogCard({ Title, SubTitle, wallValue, img }) {
     return (
-      <Card className="max-w-[24rem] overflow-hidden">
+      <Card className=" mt-5 max-w-[24rem] overflow-hidden">
         <CardHeader
           floated={false}
           shadow={false}
@@ -111,7 +111,7 @@ export default function Wall2() {
               شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجا برای همه
               اشتراک بزارید "
         />
-        <div className={"p-6 mt-6 "}>
+        <div className={"justify-between "}>
           {/* <Cards
           color={"secondary"}
           wallValue={
@@ -132,26 +132,30 @@ export default function Wall2() {
           }
           wallValue={<Button onClick={handel_click}>save</Button>}
         /> */}
-          <BlogCard
-            wallValue={
-              "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
-            }
-            SubTitle={"اولین یادگاری من"}
-            Title={"first Wall Text"}
-            img={pic1}
-          />
-          <BlogCard
-            img={pic2}
-            Title={"تو هم یادگاریتو بنویس"}
-            SubTitle={
-              <Text
-                size="sm"
-                ref={inputRef}
-                placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
-              ></Text>
-            }
-            wallValue={<Button onClick={handel_click}>save</Button>}
-          />
+          <div className="mt-6">
+            <BlogCard
+              wallValue={
+                "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
+              }
+              SubTitle={"اولین یادگاری من"}
+              Title={"first Wall Text"}
+              img={pic1}
+            />
+          </div>
+          <div className="mt-6 p-6">
+            <BlogCard
+              img={pic2}
+              Title={"تو هم یادگاریتو بنویس"}
+              SubTitle={
+                <Text
+                  size="sm"
+                  ref={inputRef}
+                  placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
+                ></Text>
+              }
+              wallValue={<Button onClick={handel_click}>save</Button>}
+            />
+          </div>
         </div>
         <Footer />
       </div>
