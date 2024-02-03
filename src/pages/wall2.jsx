@@ -2,7 +2,8 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-
+import pic1 from "../images/1.jpg";
+import pic2 from "../images/2.jpg";
 import {
   Card,
   CardHeader,
@@ -74,7 +75,7 @@ export default function Wall2() {
     );
   }
 
-  function BlogCard({ Title, SubTitle, wallValue }) {
+  function BlogCard({ Title, SubTitle, wallValue, img }) {
     return (
       <Card className="max-w-[24rem] overflow-hidden">
         <CardHeader
@@ -83,10 +84,7 @@ export default function Wall2() {
           color="transparent"
           className="m-0 rounded-none"
         >
-          <img
-            src="https://picsum.photos/400/400?grayscale"
-            alt="ui/ux review check"
-          />
+          <img src={img} alt="ui/ux review check" />
         </CardHeader>
         <CardBody>
           <Typography variant="h4" color="blue-gray">
@@ -140,8 +138,10 @@ export default function Wall2() {
             }
             SubTitle={"اولین یادگاری من"}
             Title={"first Wall Text"}
+            img={pic1}
           />
           <BlogCard
+            img={pic2}
             Title={"تو هم یادگاریتو بنویس"}
             SubTitle={
               <Text
