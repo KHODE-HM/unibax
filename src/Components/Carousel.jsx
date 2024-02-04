@@ -37,10 +37,14 @@ export default function HomeCarousel({ props }) {
       <Carousel
         transition={{ duration: 2 }}
         className="rounded-md  flex-auto xl:h-70w-full"
+      
       >
-        {pic.map((e) => {
-          <img key={e.key} src={e.src} alt={e.altText} />;
-        })}
+        <img src={pic2} alt="" />
+        <img src={pic3} alt="" />
+        <img src={pic2} alt="" />
+        <img src={pic4} alt="" />
+        <img src={pic5} alt="" />
+        <img src={pic7} alt="" />
       </Carousel>
     </>
   );

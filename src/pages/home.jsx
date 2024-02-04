@@ -95,6 +95,7 @@ export default function Home() {
             Title={"رویداد ها"}
             Paragraph={"همایش ها و رویداد های این هفته"}
           />
+          <HomeCarousel />
         </div>
         <div>
           <SignUp />

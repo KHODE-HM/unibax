@@ -2,8 +2,8 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import pic1 from "../images/1.jpg";
-import pic2 from "../images/2.jpg";
+import pic1 from "../images/2.jpg";
+import pic2 from "../images/3.avif";
 import {
   Card,
   CardHeader,
@@ -59,22 +59,6 @@ export default function Wall2() {
       });
   }
 
-  function Cards({ wallValue, Title, SubTitle, color }) {
-    let today = new Date().toString();
-    return (
-      <div>
-        <Card className={"bg-blue-gray-900 mb-5 rounded-lg text-center"}>
-          <Typography>{Title}</Typography>
-          <div>
-            <Typography tag="h5">{SubTitle}</Typography>
-            <small>{today}</small>
-            <p>{wallValue}</p>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
   function BlogCard({ Title, SubTitle, wallValue, img }) {
     return (
       <Card className=" mt-5 max-w-[24rem] overflow-hidden">
@@ -82,7 +66,7 @@ export default function Wall2() {
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 rounded-none"
+          className="m-0 rounded-md"
         >
           <img src={img} alt="ui/ux review check" />
         </CardHeader>
@@ -132,7 +116,7 @@ export default function Wall2() {
           }
           wallValue={<Button onClick={handel_click}>save</Button>}
         /> */}
-          <div className="mt-6 justify-center">
+          <div className="mt-6 justify-center p-10">
             <BlogCard
               wallValue={
                 "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
@@ -142,7 +126,7 @@ export default function Wall2() {
               img={pic1}
             />
           </div>
-          <div className="mt-6 p-6">
+          <div className="mt-6 p-8">
             <BlogCard
               img={pic2}
               Title={"تو هم یادگاریتو بنویس"}
