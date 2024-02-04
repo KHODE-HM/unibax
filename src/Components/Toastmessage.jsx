@@ -14,7 +14,7 @@ export default function Toastmessage({ weekInfo = null, txt, txt2, titleTxt }) {
         </Typography>
         <Typography>
           {txt} {weekInfo}
-          &quot;{txt2}
+          {txt2}
         </Typography>
       </CardBody>
     </Card>

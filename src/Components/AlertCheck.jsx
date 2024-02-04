@@ -6,8 +6,8 @@ function IconOutlined() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-6 w-6"
+      fill="none"
+      className="h-6 w-6 bg-blue-gray-500 rounded-xl"
     >
       <path
         strokeLinecap="round"
@@ -26,14 +26,14 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="mt-2 rounded-xl p-6  shadow-white">
+      <div className="mt-2 p-6 w-2rem ">
         <Alert
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-justify] justify-evenly bg-white-50"
+          className="text-justify] rounded-md shadow-xl bg-white-50"
         >
-          <Typography className="font-black">{Title}</Typography>
+          <Typography className="text-2xl font-extrabold">{Title}</Typography>
           <ul className="mt-2  list-inside list-disc">
             <Typography>{Paragraph}</Typography>
 

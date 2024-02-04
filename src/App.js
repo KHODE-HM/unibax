@@ -7,14 +7,9 @@ import News from "./pages/News";
 import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
 import { StrictMode, Suspense, useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-//supabase
-// const url = process.env.React_App_Url;
-// const anon = process.env.Reacr_App_Anon;
-// export const supabase = createClient(url, anon);
+
 export default function App() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [Users, setUsers] = useState([]);
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);

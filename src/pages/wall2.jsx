@@ -132,7 +132,7 @@ export default function Wall2() {
           }
           wallValue={<Button onClick={handel_click}>save</Button>}
         /> */}
-          <div className="mt-6">
+          <div className="mt-6 justify-center">
             <BlogCard
               wallValue={
                 "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
