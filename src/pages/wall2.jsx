@@ -3,7 +3,7 @@ import Footer from "../Components/footer";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import pic1 from "../images/2.jpg";
-import pic2 from "../images/3.avif";
+import pic2 from "../images/3.jpg";
 import {
   Card,
   CardHeader,

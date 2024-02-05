@@ -10,41 +10,39 @@ import {
 } from "@material-tailwind/react";
 const pic7 = "https://picsum.photos/900/900?grayscale";
 export default function HomeCarousel({ props }) {
-  const pic = [
-    {
-      key: 1,
-      src: pic1,
-      altText: "slide 1",
-    },
-    {
-      key: 2,
-      src: pic2,
-      altText: "slide 2",
-    },
-    {
-      key: 3,
-      src: pic3,
-      altText: "slide 3",
-    },
-    {
-      key: 4,
-      src: pic4,
-      altText: "slide 4",
-    },
-  ];
+  // const pic = [
+  //   {
+  //     key: 1,
+  //     src: pic1,
+  //     altText: "slide 1",
+  //   },
+  //   {
+  //     key: 2,
+  //     src: pic2,
+  //     altText: "slide 2",
+  //   },
+  //   {
+  //     key: 3,
+  //     src: pic3,
+  //     altText: "slide 3",
+  //   },
+  //   {
+  //     key: 4,
+  //     src: pic4,
+  //     altText: "slide 4",
+  //   },
+  // ];
   return (
     <>
       <Carousel
         transition={{ duration: 2 }}
         className="rounded-md  flex-auto xl:h-70w-full"
-      
       >
+        <img src={pic1} alt="" />
         <img src={pic2} alt="" />
         <img src={pic3} alt="" />
-        <img src={pic2} alt="" />
         <img src={pic4} alt="" />
         <img src={pic5} alt="" />
-        <img src={pic7} alt="" />
       </Carousel>
     </>
   );
