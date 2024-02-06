@@ -68,7 +68,7 @@ export default function Wall2() {
           color="transparent"
           className="m-0 rounded-md"
         >
-          <img src={img} className="w-10" alt="ui/ux review check" />
+          <img src={img} className="w-200px" alt="ui/ux review check" />
         </CardHeader>
         <CardBody>
           <Typography variant="h4" color="blue-gray">
@@ -126,7 +126,7 @@ export default function Wall2() {
               img={pic1}
             />
           </div>
-          <div className="mt-6 p-8">
+          <div className="mt-6 p-10">
             <BlogCard
               img={pic2}
               Title={"تو هم یادگاریتو بنویس"}
