@@ -1,6 +1,6 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import pic1 from "../images/2.jpg";
 import pic2 from "../images/3.jpg";
@@ -61,62 +61,50 @@ export default function Wall2() {
 
   function BlogCard({ Title, SubTitle, wallValue, img }) {
     return (
-      <Card className=" mt-5 max-w-[24rem] overflow-hidden">
-        <CardHeader
-          floated={false}
-          shadow={false}
-          color="transparent"
-          className="m-0 rounded-md"
-        >
-          <img src={img} className="w-200px" alt="ui/ux review check" />
-        </CardHeader>
-        <CardBody>
-          <Typography variant="h4" color="blue-gray">
-            {Title}
-          </Typography>
-          <Typography variant="lead" color="gray" className="mt-3 font-normal">
-            &apos;{SubTitle}
-          </Typography>
-        </CardBody>
-        <CardFooter className="flex items-center justify-between">
-          <Typography className="font-normal">{wallValue}</Typography>
-        </CardFooter>
-      </Card>
+      <>
+        <Card className=" mt-5 md:w-full items-center sm:w-[24rem]  overflow-hidden  ">
+          <CardHeader
+            floated={false}
+            shadow={false}
+            color="transparent"
+            className="m-0 rounded-md"
+          >
+            <img src={img} className="w-200px" alt="ui/ux review check" />
+          </CardHeader>
+          <CardBody>
+            <Typography variant="h4" color="blue-gray">
+              {Title}
+            </Typography>
+            <Typography
+              variant="lead"
+              color="gray"
+              className="mt-3 font-normal"
+            >
+              &apos;{SubTitle}
+            </Typography>
+          </CardBody>
+          <CardFooter className="flex items-center justify-between">
+            <Typography className="font-normal">{wallValue}</Typography>
+          </CardFooter>
+        </Card>
+      </>
     );
   }
   return (
-    <>
+    <div>
       <div>
-        <Navbar />
-        <AlertCheck
-          Title={"این صفحه در حال تکمیل میباشد "}
-          Paragraph="به صفحه وال خوش آمدید"
-          Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
+        <>
+          <Navbar />
+          <AlertCheck
+            Title={"این صفحه در حال تکمیل میباشد "}
+            Paragraph="به صفحه وال خوش آمدید"
+            Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
               شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجا برای همه
               اشتراک بزارید "
-        />
-        <div className={"justify-between "}>
-          {/* <Cards
-          color={"secondary"}
-          wallValue={
-            "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
-          }
-          SubTitle={"اولین یادگاری من"}
-          Title={"first Wall Text"}
-        />
-        <Cards
-          color={"secondary"}
-          Title={"تو هم یادگاریتو بنویس"}
-          SubTitle={
-            <Text
-              size="sm"
-              ref={inputRef}
-              placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
-            ></Text>
-          }
-          wallValue={<Button onClick={handel_click}>save</Button>}
-        /> */}
-          <div className="mt-6 justify-center p-10">
+          />
+        </>
+        <>
+          <div className="sm:mt-6 justify-center p-10  ">
             <BlogCard
               wallValue={
                 "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
@@ -126,13 +114,13 @@ export default function Wall2() {
               img={pic1}
             />
           </div>
-          <div className="mt-6 p-10">
+          <div className="mt-6 p-10 ">
             <BlogCard
               img={pic2}
               Title={"تو هم یادگاریتو بنویس"}
               SubTitle={
                 <Text
-                  size="sm"
+                  size="md"
                   ref={inputRef}
                   placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
                 ></Text>
@@ -140,9 +128,9 @@ export default function Wall2() {
               wallValue={<Button onClick={handel_click}>save</Button>}
             />
           </div>
-        </div>
-        <Footer />
+          <Footer />
+        </>
       </div>
-    </>
+    </div>
   );
 }

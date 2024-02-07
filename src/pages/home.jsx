@@ -46,32 +46,35 @@ export default function Home() {
   // page on mobile mod
   if (Mobile) {
     return (
-      <>
-        <Navbar />
-        <AlertCheck
-          Title={"سایت در حال طراحی و توسعه است"}
-          Paragraph={
-            "ایده اصلی سایت این بود که بچه ها لیست واحد هایی که برداشتن رو به اشتراک بزارن تا همه بتونن ببینن که ، کی ، چی برداشته و بتونن بادوستاشون درس بردارن و دور هم دوران شادی داشته باشن"
-          }
-          Paragraph2={
-            "ولی بنا به دلایلی (میدونین یکم پیچیدس ما هم انگیزمون کمه)"
-          }
-          Paragraph3={
-            "این ایده هنوز عملی نشده یک قسمت اخر این صفحه اضافه شده تا شما ایده\n" +
-            " هاتونو به ما بگید"
-          }
-        />
-        <div>
-          <div>
-            <div className="pt-5">
-              <Progress
-                value={passedBy}
-                label={"Compelated"}
-                variant="filled"
-                size="lg"
-              ></Progress>
-            </div>
+      <div>
+        <>
+          <Navbar />
+          <AlertCheck
+            Title={"سایت در حال طراحی و توسعه است"}
+            Paragraph={
+              "ایده اصلی سایت این بود که بچه ها لیست واحد هایی که برداشتن رو به اشتراک بزارن تا همه بتونن ببینن که ، کی ، چی برداشته و بتونن بادوستاشون درس بردارن و دور هم دوران شادی داشته باشن"
+            }
+            Paragraph2={
+              "ولی بنا به دلایلی (میدونین یکم پیچیدس ما هم انگیزمون کمه)"
+            }
+            Paragraph3={
+              "این ایده هنوز عملی نشده یک قسمت اخر این صفحه اضافه شده تا شما ایده\n" +
+              " هاتونو به ما بگید"
+            }
+          />
+        </>
+
+        <>
+          <div className="p-6 mt-3 mb-3">
+            <Progress
+              value={passedBy}
+              label={"Compelated"}
+              variant="filled"
+              size="lg"
+            ></Progress>
           </div>
+        </>
+        <>
           <div className="rounded-md justify-center gap-3 animate-pulse">
             <Toastmessage
               // weekInfo={weekTypeObj?.weekCount}
@@ -89,19 +92,20 @@ export default function Home() {
               titleTxt={"Good Luck"}
             />
           </div>
-        </div>
-        <div className="justify-center pt-6">
-          <AlertCheck
-            Title={"رویداد ها"}
-            Paragraph={"همایش ها و رویداد های این هفته"}
-          />
-          <HomeCarousel />
-        </div>
-        <div>
-          <SignUp />
-        </div>
-        <Footer />
-      </>
+        </>
+        <>
+          <div className="justify-center pt-6">
+            <AlertCheck
+              Title={"رویداد ها"}
+              Paragraph={"همایش ها و رویداد های این هفته"}
+            />
+          </div>
+          <div>
+            <SignUp />
+          </div>
+          <Footer />
+        </>
+      </div>
     );
   } else {
     return (
