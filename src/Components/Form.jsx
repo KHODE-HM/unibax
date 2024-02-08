@@ -1,10 +1,4 @@
-import {
-  Card,
-  Input,
-
-  Button,
-  Typography,
-} from "@material-tailwind/react";
+import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useState, useRef } from "react";
 import { Textareas } from "./TextArea";
 import axios from "axios";
@@ -15,11 +9,9 @@ export function SignUp() {
   const textAreaComment = useRef(null);
   //APi
   let apiURL = "http://127.0.0.1:8000/";
-  function submit_comment() {
-    console.log(nameComment);
-    console.log(emailComment);
-    console.log(textAreaComment);
-  }
+  // function submit_comment() {
+  //   console.log(textAreaComment);
+  // }
   //   let now_date = new Date();
   //   console.log({
   //     date: `${now_date.getFullYear()}-${now_date.getMonth()}-${now_date.getDay()}`,
@@ -53,7 +45,11 @@ export function SignUp() {
   return (
     <>
       <Toaster />
-      <Card color="transparent" className="items-center shadow-xl" shadow={false}>
+      <Card
+        color="transparent"
+        className="items-center shadow-xl"
+        shadow={false}
+      >
         <form className="mt-8 mb-2 p-6 w-80 max-w-screen-lg sm:w-96 ">
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -92,7 +88,7 @@ export function SignUp() {
             <Textareas />
           </div>
 
-          <Button className="mt-6" fullWidth onClick={submit_comment()}>
+          <Button className="mt-6" fullWidth>
             ارسال
           </Button>
         </form>
