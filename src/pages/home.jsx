@@ -1,11 +1,11 @@
-import { Skeleton } from "../Components/skeleton";
+import { Skeleton, SkelrtonFild } from "../Components/skeleton";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import HomeCarousel from "../Components/Carousel";
-import { Progress, Typography, Button, Input } from "@material-tailwind/react";
-import { Suspense, useContext, useEffect, useRef, useState } from "react";
+import { Progress } from "@material-tailwind/react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
 import { createClient } from "@supabase/supabase-js";
 import { SignUp } from "../Components/Form";
@@ -31,7 +31,6 @@ export default function Home() {
   //   console.log(data);
   //   return () => {};
   // }
-
   //my odd - even week calculator
   useEffect(() => {
     let starterPoint = new Date("2024-02-9T23:59:59.000Z").getTime();
@@ -105,13 +104,18 @@ export default function Home() {
     );
   } else {
     return (
-      <>
-        <Skeleton visibility="hidden" />
-        <div className="mt-10 justify-center grid-rows-3">
-          <Skeleton show="hidden" />
-          <Skeleton show="hidden" />
+      <div className="bg-black grid grid-col-3">
+        <div>
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+
+            <SkelrtonFild />
+            <SkelrtonFild />
+          </>
         </div>
-      </>
+      </div>
     );
   }
 }
