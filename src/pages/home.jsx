@@ -1,4 +1,4 @@
-import { Skeleton, SkelrtonFild } from "../Components/skeleton";
+import { Skeleton, Fild } from "../Components/skeleton";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import AlertCheck from "../Components/AlertCheck";
@@ -108,15 +108,16 @@ export default function Home() {
     );
   } else {
     return (
-      <div className="bg-black grid grid-col-3">
-        <div>
+      <div className="overflow-hidden">
+        <Skeleton />
+        <div className="bg-black grid  grid-cols-3 gap-3  ">
           <>
             <Skeleton />
             <Skeleton />
             <Skeleton />
-
-            <SkelrtonFild />
-            <SkelrtonFild />
+            <Fild />
+            <Fild />
+            <Fild />
           </>
         </div>
       </div>

@@ -5,7 +5,7 @@ export default function Footer() {
       <footer className="w-full bg-white rounded-xl p-6">
         <hr className="my-8 border-solid border-collapse-50" />
         <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-          <ul className="flex flex-wrap items-stretch gap-y-2 gap-x-4">
+          <ul className="flex flex-wrap ">
             <li>
               <Typography>By</Typography>
             </li>

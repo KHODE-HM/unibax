@@ -9,7 +9,7 @@ export function Skeleton() {
   return (
     <div>
       <>
-        <Card className=" max-w-full animate-pulse">
+        <Card className=" max-w-screen animate-pulse hover:animate-none">
           <CardHeader
             shadow={false}
             floated={false}
@@ -67,7 +67,6 @@ export function Skeleton() {
               &nbsp;
             </Typography>
           </CardBody>
-          <SkelrtonFild />
           <CardFooter className="pt-0">
             <Button
               disabled
@@ -82,11 +81,11 @@ export function Skeleton() {
     </div>
   );
 }
-export function SkelrtonFild() {
+export function Fild() {
   return (
     <div>
       <>
-        <Card className="mt-10 w-fit p-6 hover:animate-pulse">
+        <Card className="mt-10 w-fit p-6 hover:animate-pulse ">
           <CardBody>
             <Typography
               as="div"

@@ -31,9 +31,11 @@ export default function AlertCheck({
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-justify] rounded-md shadow-xl bg-white-50"
+          className="text-pretty rounded-md shadow-xl bg-white-50"
         >
-          <Typography className="text-2xl font-extrabold">{Title}</Typography>
+          <Typography className="text-2xl text-center font-extrabold">
+            {Title}
+          </Typography>
           <ul className="mt-2  list-inside list-disc">
             <Typography>{Paragraph}</Typography>
 
