@@ -4,11 +4,7 @@ export function Textareas() {
   return (
     <div className="relative w-[18rem] rounded-xl bg-transparent">
       <Textarea variant="static" placeholder="نظرتو اینجا تایپ کن" rows={8} />
-      <div className="flex w-full justify-between py-1.5">
-        <IconButton variant="text" color="blue-gray" size="sm">
-          click
-        </IconButton>
-      </div>
+      <div className="flex w-full justify-between py-1.5"></div>
     </div>
   );
 }

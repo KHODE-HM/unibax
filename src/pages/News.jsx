@@ -10,8 +10,6 @@ import {
 } from "@material-tailwind/react";
 
 export default function News() {
-  const Text = "UniBax  ....".split("");
-
   function Cards({ prop }) {
     return (
       <Card
@@ -44,9 +42,6 @@ export default function News() {
       <div>
         <Cards />
         <Cards />
-        {Text.map((el, i) => (
-          <span key={i}>{el} </span>
-        ))}
       </div>
       <Footer />
     </>
