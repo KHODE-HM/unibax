@@ -33,7 +33,7 @@ export default function Home() {
   // }
   //my odd - even week calculator
   useEffect(() => {
-    let starterPoint = new Date("2024-02-9T23:59:59.000Z").getTime();
+    let starterPoint = new Date("2024-02-09T23:59:59.000Z").getTime();
     let todayDate = new Date().getTime();
     let diffDaysPerMSec = new Date(todayDate - starterPoint).getTime();
     setWeekTypeObj({
