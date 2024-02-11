@@ -9,7 +9,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
 import { createClient } from "@supabase/supabase-js";
 import { SignUp } from "../Components/Form";
-//supabase
 export const supabase = createClient(
   "https://diyoxrrtujlpkdftwlhk.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpeW94cnJ0dWpscGtkZnR3bGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU1NzU1MDgsImV4cCI6MjAyMTE1MTUwOH0.zPGWMhTfUZI6_TCxCd_XNacVhLBFYXKcCZH2IqWhjPs"
@@ -33,7 +32,7 @@ export default function Home() {
   // }
   //my odd - even week calculator
   useEffect(() => {
-    let starterPoint = new Date("2024-02-9T23:59:59.000Z").getTime();
+    let starterPoint = new Date("2024-02-09T23:59:59.000Z").getTime();
     let todayDate = new Date().getTime();
     let diffDaysPerMSec = new Date(todayDate - starterPoint).getTime();
     setWeekTypeObj({
@@ -47,7 +46,12 @@ export default function Home() {
     return (
       <div>
         <>
-          <Navbar />
+          <header>
+            <h1>
+              <i className="text-lg">UniWall</i>
+            </h1>
+            <Navbar />
+          </header>
           <AlertCheck
             Title={"سایت در حال طراحی و توسعه است"}
             Paragraph={
@@ -67,7 +71,7 @@ export default function Home() {
           <div className="p-6 mt-3 mb-3">
             <Progress
               value={passedBy}
-              label={"Compelated"}
+              label={passedBy}
               variant="filled"
               size="lg"
             ></Progress>
@@ -76,19 +80,19 @@ export default function Home() {
         <>
           <div className="rounded-md justify-center gap-3 animate-pulse">
             <Toastmessage
-              // weekInfo={weekTypeObj?.weekCount}
-              // titleTxt={"این هفته"}
-              // txt={"  این هفته "}
-              // txt2={"است"}
-              titleTxt={"Semester Will Start next week"}
+              weekInfo={weekTypeObj?.weekCount}
+              titleTxt={"این هفته"}
+              txt={"  این هفته "}
+              txt2={"است"}
+              //titleTxt={"Semester Will Start next week"}
             />
 
             <Toastmessage
-              // weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
-              // titleTxt={"This Week"}
-              // txt={"  این هفته  هفته"}
-              // txt2={"میباشد"}
-              titleTxt={"Good Luck"}
+              weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
+              titleTxt={"This Week"}
+              txt={"  این هفته "}
+              txt2={"میباشد"}
+              // titleTxt={"Good Luck"}
             />
           </div>
         </>
@@ -108,9 +112,8 @@ export default function Home() {
     );
   } else {
     return (
-      <div className="overflow-hidden">
-        <Skeleton />
-        <div className="bg-black grid  grid-cols-3 gap-3  ">
+      <div className=" overflow-hidden">
+        <div className=" grid  grid-cols-3 gap-3  ">
           <>
             <Skeleton />
             <Skeleton />

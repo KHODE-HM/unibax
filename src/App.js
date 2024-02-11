@@ -1,5 +1,5 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+"use strict";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Wall from "./pages/wall";
@@ -7,7 +7,7 @@ import News from "./pages/News";
 import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
 import { StrictMode, Suspense, useEffect, useState } from "react";
-
+import { BubblyContainer, BubblyLink } from "react-bubbly-transitions";
 export default function App() {
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -23,21 +23,31 @@ export default function App() {
   const isMobile = width <= 768;
   return (
     <BrowserRouter>
+      <BubblyContainer />
       <isMobileContext.Provider value={isMobile}>
         <Routes>
-          <Route path={"/"} element={<Home />} />
-          {/* <Route path="/wall" element={<Wall />} />*/}
-          <Route path="/news" element={<News />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <BubblyLink to="Home" element="home"></BubblyLink>
+                <BubblyLink to="/News" element="News"></BubblyLink>
+                <BubblyLink to="/wall2" element="wall2"></BubblyLink>
+                <Outlet />
+              </>
+            }
+          />
+          <Route index element={<Home />} />
+          <Route path="/News" element={<News />} />
           <Route path="/wall2" element={<Wall2 />} />
+          <Route
+            path="*"
+            element={
+              <h1 className="text-pretty text-center text-2xl">Not Found </h1>
+            }
+          />
         </Routes>
       </isMobileContext.Provider>
     </BrowserRouter>
   );
 }
-
-// export const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>
-// );

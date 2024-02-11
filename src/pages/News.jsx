@@ -37,13 +37,23 @@ export default function News() {
   }
 
   return (
-    <>
-      <Navbar />
-      <div>
-        <Cards />
-        <Cards />
-      </div>
-      <Footer />
-    </>
+    <div>
+      <>
+        <header>
+          <h1>
+            <i className="text-lg">UniWall</i>
+          </h1>
+          <Navbar />
+        </header>
+      </>
+
+      <>
+        <div>
+          <Cards />
+          <Cards />
+        </div>
+        <Footer />
+      </>
+    </div>
   );
 }

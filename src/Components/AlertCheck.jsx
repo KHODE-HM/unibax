@@ -26,16 +26,14 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="mt-2 p-6 w-2rem ">
+      <div className="mt-2 p-5 w-2rem ">
         <Alert
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-pretty rounded-md shadow-xl bg-white-50"
+          className="text-pretty rounded-xl shadow-xl bg-white-50"
         >
-          <Typography className="text-2xl text-center font-extrabold">
-            {Title}
-          </Typography>
+          <Typography className="text-xl  font-extrabold">{Title}</Typography>
           <ul className="mt-2  list-inside list-disc">
             <Typography>{Paragraph}</Typography>
 
