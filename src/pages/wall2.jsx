@@ -94,7 +94,7 @@ export default function Wall2() {
     <div>
       <div>
         <>
-          <header>
+          <header className="mx-4 p-5">
             <h1>
               <i className="text-lg">UniWall</i>
             </h1>

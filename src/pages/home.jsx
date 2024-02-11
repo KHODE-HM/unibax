@@ -46,12 +46,8 @@ export default function Home() {
     return (
       <div>
         <>
-          <header>
-            <h1>
-              <i className="text-lg">UniWall</i>
-            </h1>
-            <Navbar />
-          </header>
+          <Navbar />
+
           <AlertCheck
             Title={"سایت در حال طراحی و توسعه است"}
             Paragraph={
@@ -90,7 +86,7 @@ export default function Home() {
             <Toastmessage
               weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
               titleTxt={"This Week"}
-              txt={"  این هفته "}
+              txt={"  این هفته   آموزشی"}
               txt2={"میباشد"}
               // titleTxt={"Good Luck"}
             />

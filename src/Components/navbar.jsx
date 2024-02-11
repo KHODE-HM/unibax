@@ -12,8 +12,13 @@ export default function Navbar() {
     </BubblyLink>
   );
   return (
-    <div className="items-center">
+    <div className="mx-4 p-5 shadow-lg">
       <nav className="animate-in" style={{ animationDelay: "800ms" }}>
+        <header className="mx-4 p-5">
+          <h1>
+            <i className="text-lg">UniWall</i>
+          </h1>
+        </header>
         <MyBubblyLink to={"/"} text="Home" />
         <MyBubblyLink to={"News"} text="News" />
         <MyBubblyLink to={"wall2"} text="Wall" />
