@@ -94,12 +94,8 @@ export default function Wall2() {
     <div>
       <div>
         <>
-          <header className="mx-4 p-5">
-            <h1>
-              <i className="text-lg">UniWall</i>
-            </h1>
-            <Navbar />
-          </header>
+          <Navbar />
+
           <AlertCheck
             Title={"این صفحه در حال تکمیل میباشد "}
             Paragraph="به صفحه وال خوش آمدید"

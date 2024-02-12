@@ -2,7 +2,7 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 export default function Toastmessage({ weekInfo = null, txt, txt2, titleTxt }) {
   return (
-    <Card className="mt-10 w-86 rounded-xl bg-white-500">
+    <Card className="mt-10 w-86 rounded-xl bg-white-500 text-center">
       <CardBody>
         <Typography
           variant="h5"
@@ -12,8 +12,9 @@ export default function Toastmessage({ weekInfo = null, txt, txt2, titleTxt }) {
         >
           {titleTxt}
         </Typography>
-        <Typography>
-          {txt} {weekInfo}
+        <Typography variant="h6">
+          {txt}
+          {weekInfo}
           {txt2}
         </Typography>
       </CardBody>

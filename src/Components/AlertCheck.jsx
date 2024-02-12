@@ -22,6 +22,7 @@ export default function AlertCheck({
   Paragraph = "",
   Paragraph2 = "",
   Paragraph3 = "",
+  list = "",
 }) {
   const [dismiss, setDismiss] = useState(true);
   return (
@@ -31,16 +32,30 @@ export default function AlertCheck({
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-pretty rounded-xl shadow-xl bg-white-50"
+          className="text-pretty rounded-xl shadow-xl bg-white-50 text-balance"
         >
-          <Typography className="text-xl  font-extrabold">{Title}</Typography>
-          <ul className="mt-2  list-inside list-disc">
-            <Typography>{Paragraph}</Typography>
-
-            <br />
-            {Paragraph2}
-            <br />
-            {Paragraph3}
+          <Typography className="text-xl  font-extrabold text-center">
+            {Title}
+          </Typography>
+          <ul className={`${list} `}>
+            <li>
+              <Typography className="text-pretty  font-sans text-lg">
+                {Paragraph}
+              </Typography>
+            </li>
+            <li>
+              <Typography className="text-wrap  font-sans text-lg">
+                {" "}
+                {Paragraph2}
+              </Typography>
+            </li>
+            <li>
+              {" "}
+              <Typography className="text-pretty  font-sans text-lg">
+                {" "}
+                {Paragraph3}
+              </Typography>
+            </li>
           </ul>
         </Alert>
       </div>
