@@ -42,24 +42,14 @@ export default function Home() {
     return (
       <div>
         <>
-          <header>
-            <h1>
-              <i className="text-lg">UniWall</i>
-            </h1>
-            <Navbar />
-          </header>
+          <Navbar />
+
           <AlertCheck
-            Title={"سایت در حال طراحی و توسعه است"}
-            Paragraph={
-              "ایده اصلی سایت این بود که بچه ها لیست واحد هایی که برداشتن رو به اشتراک بزارن تا همه بتونن ببینن که ، کی ، چی برداشته و بتونن بادوستاشون درس بردارن و دور هم دوران شادی داشته باشن"
-            }
-            Paragraph2={
-              "ولی بنا به دلایلی (میدونین یکم پیچیدس ما هم انگیزمون کمه)"
-            }
-            Paragraph3={
-              "این ایده هنوز عملی نشده یک قسمت اخر این صفحه اضافه شده تا شما ایده\n" +
-              " هاتونو به ما بگید"
-            }
+            list="list-disc"
+            Title={"قابلیت های سایت ما "}
+            Paragraph={"مشاهده هفته آموزشی  "}
+            Paragraph2={"وبلاگ دانشجویی"}
+            Paragraph3={"نظر سنجی اساتید توسط دانشجو"}
           />
         </>
 
@@ -77,26 +67,28 @@ export default function Home() {
           <div className="rounded-md justify-center gap-3 animate-pulse">
             <Toastmessage
               weekInfo={weekTypeObj?.weekCount}
-              titleTxt={"این هفته"}
+              titleTxt={" این هفته"}
               txt={"  این هفته "}
-              txt2={"است"}
+              txt2={"    آموزشی است"}
               //titleTxt={"Semester Will Start next week"}
             />
 
             <Toastmessage
               weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
               titleTxt={"This Week"}
-              txt={"  این هفته "}
-              txt2={"میباشد"}
+              txt={"این هفته آموزشی  "}
+              txt2={"  میباشد  "}
               // titleTxt={"Good Luck"}
             />
           </div>
         </>
         <>
-          <div className="justify-center pt-6">
+          <div className="items-center pt-6  ">
             <AlertCheck
-              Title={"رویداد ها"}
-              Paragraph={"همایش ها و رویداد های این هفته"}
+              list=" "
+              Title={"نظرات"}
+              Paragraph=" نطرات و تجربه کاربری خودتون با ما به اشتراک بزار"
+              Paragraph2="تا یک محیط کاربری تمام کمال بسازیم"
             />
           </div>
           <div>
