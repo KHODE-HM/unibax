@@ -25,12 +25,16 @@ export default function News() {
           <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
         </CardHeader>
         <CardBody className="relative py-14 px-6 md:px-12">
-          <Typography
+          {/* <Typography
             variant="h2"
             color="white"
             className="mb-6 font-medium leading-[1.5]"
-          ></Typography>
-          <Typography variant="h5" className="mb-4 text-gray-400"></Typography>
+          >
+            .
+          </Typography>
+          <Typography variant="h5" className="mb-4 text-gray-400">
+            .
+          </Typography> */}
         </CardBody>
       </Card>
     );

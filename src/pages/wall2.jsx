@@ -1,7 +1,7 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { Fragment, useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { Textarea } from "@material-tailwind/react";
 import pic1 from "../images/2.jpg";
 import pic2 from "../images/3.jpg";
 import {
@@ -17,46 +17,36 @@ import {
 import AlertCheck from "../Components/AlertCheck";
 import toast from "react-hot-toast";
 import Text from "@material-tailwind/react/components/Textarea";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "../services/supaBase";
 export default function Wall2() {
   const inputRef = useRef(null);
   let apiURL = "http://127.0.0.1:8000/";
-  const [wallValue, setWallValue] = useState("");
+  const [wallValues, setWallValues] = useState([]);
   const [formInput, setFormInput] = useState("");
   const [show, setShow] = useState(true);
 
-  /*  useEffect(() => {
-        axios.get(apiURL + "/wall/get-api").then(
-          (response) => {
-            setWallValue(response.data.text);
-          },
-          [formInput],
-        );
-      });
-  const supabase = createClient(
-    "https://diyoxrrtujlpkdftwlhk.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpeW94cnJ0dWpscGtkZnR3bGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU1NzU1MDgsImV4cCI6MjAyMTE1MTUwOH0.zPGWMhTfUZI6_TCxCd_XNacVhLBFYXKcCZH2IqWhjPs"
-  );
   useEffect(() => {
-    getUsers();
+    getWallData();
   }, []);
-  async function getUsers() {
-    const { data } = await supabase.from("Users").select();
-    console.log("++++++++++++++++++++++++++++++++++");
-    console.log(d);
-    console.log("++++++++++++++++++++++++++++++++++");
-  }*/
-  function handel_click() {
-    setFormInput(inputRef.current.value);
-    axios
-      .post(apiURL + "/wall/add-api/", { text: inputRef.current.value })
-      .then((response) => {
-        if (response.data.detail === "ok") {
-          toast.success("با موفقیت روی دیوار نوشته شد");
-        } else {
-          toast.error("The request was not accepted");
-        }
-      });
+
+  async function insertWallValues() {
+    const { data, error } = await supabase
+      .from("uniwall-users")
+      .insert({ name: formInput, email: "" });
+
+    getWallData();
+  }
+
+  async function getWallData() {
+    const { data, error } = await supabase.from("uniwall-users").select("*");
+    setWallValues(data);
+    if (!data) {
+      throw error.code;
+    }
+  }
+
+  function handel_input_wall(e) {
+    setFormInput(e.target.value);
   }
 
   function BlogCard({ Title, SubTitle, wallValue, img }) {
@@ -108,30 +98,41 @@ export default function Wall2() {
               اشتراک بزارید "
           />
         </>
+
         <>
-          <div className="sm:mt-6 justify-center p-10  ">
-            <BlogCard
-              wallValue={
-                "این اولین تکست صفحه وال است این صفحه برای ارتباط و یادگاری های شما ساخته شده است"
-              }
-              SubTitle={"اولین یادگاری من"}
-              Title={"first Wall Text"}
-              img={pic1}
-            />
-          </div>
           <div className="mt-6 p-10 ">
             <BlogCard
               img={pic2}
               Title={"تو هم یادگاریتو بنویس"}
               SubTitle={
-                <Text
+                <Textarea
+                  type={"text"}
                   size="md"
-                  ref={inputRef}
+                  onChange={(e) => handel_input_wall(e)}
                   placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
-                ></Text>
+                />
               }
-              wallValue={<Button onClick={handel_click}>save</Button>}
+              // wallValue={<Button onClick={handel_click}>save</Button>}
+              wallValue={<Button onClick={insertWallValues}>save</Button>}
             />
+          </div>
+          <div className="sm:mt-6 justify-center p-10  ">
+            {wallValues.map((card) => {
+              return (
+                <BlogCard
+                  wallValue={card.name}
+                  SubTitle={card.id}
+                  Title={card.id}
+                  img={pic1}
+                />
+              );
+            })}
+            {/* <Button
+              className="fixed top-0 right-1"
+              onClick={window.scroll(0, 0)}
+            >
+              Scroll top{" "}
+            </Button> */}
           </div>
           <Footer />
         </>
