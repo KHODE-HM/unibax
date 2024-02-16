@@ -3,7 +3,6 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
-import HomeCarousel from "../Components/Carousel";
 import { Progress, Typography } from "@material-tailwind/react";
 import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
