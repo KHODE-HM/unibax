@@ -16,9 +16,7 @@ import {
 } from "@material-tailwind/react";
 import AlertCheck from "../Components/AlertCheck";
 import { toast, Toaster } from "react-hot-toast";
-import Text from "@material-tailwind/react/components/Textarea";
 import supabase from "../services/supaBase";
-import { Skeleton } from "../Components/skeleton";
 export default function Wall2() {
   const [wallValues, setWallValues] = useState([]);
   const [texareaInput, setTexareaInput] = useState("");
@@ -61,6 +59,8 @@ export default function Wall2() {
 
   function handel_input_wall(e) {
     setTexareaInput(e.target.value);
+    setTexareaInput("");
+
     // console.log(texareaInput);
   }
 
@@ -128,20 +128,19 @@ export default function Wall2() {
                   &apos;
                 </Typography> */}
               </CardBody>
-              <CardFooter className="inline-block  justify-between">
-                <div className=" w-[10rem] h-[5rem] mb-5 bg-transparent">
+              <CardFooter className=" inline-block justify-between">
+                <div className=" w-[10rem] h-[5rem]  mb-5 bg-transparent">
                   <Textarea
                     variant="static"
                     placeholder="متن رو اینجا وارد کنید و بعد save رو بزنید"
-                    rows={8}
+                    rows={5}
                     onChange={(e) => handel_input_wall(e)}
                   />
-                </div>
-
-                <Button size={"md"} className="mt-2" onClick={insertWallValues}>
-                  save
-                </Button>
-              </CardFooter>
+                </div>{" "}
+              </CardFooter>{" "}
+                  <Button size={"md "} onClick={insertWallValues}>
+                    save
+                  </Button>
             </Card>
           </div>
         </>
