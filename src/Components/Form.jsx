@@ -1,14 +1,12 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useState, useRef } from "react";
-import { Textareas } from "./TextArea";
-import axios from "axios";
+import { Textarea } from "@material-tailwind/react";
 import { toast, Toaster } from "react-hot-toast";
 export function SignUp() {
   const [nameComment, setNameComment] = useState("");
   const [emailComment, setEmailComment] = useState("");
   const textAreaComment = useRef(null);
   //APi
-  let apiURL = "http://127.0.0.1:8000/";
   // function submit_comment() {
   //   console.log(textAreaComment);
   // }
@@ -34,7 +32,13 @@ export function SignUp() {
   //       }
   //     });
   // }
-
+  // let now_date = new Date();
+  // console.log({
+  //   date: `${now_date.getFullYear()}-${now_date.getMonth()}-${now_date.getDay()}`,
+  //   name: nameComment,
+  //   email: emailComment,
+  //   idea: textAreaComment.current.value,
+  // });
   function handelChangeEmailComment(e) {
     setEmailComment(e.target.value);
   }
@@ -57,7 +61,6 @@ export function SignUp() {
             </Typography>
             <Input
               size="lg"
-              placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
@@ -73,10 +76,11 @@ export function SignUp() {
             <Input
               size="lg"
               placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
+              className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+              disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+              invalid:border-pink-500 invalid:text-pink-600
+              focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               onChange={(e) => {
                 handelChangeEmailComment(e);
               }}
@@ -85,7 +89,7 @@ export function SignUp() {
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               نظرت برای سایت:
             </Typography>
-            <Textareas />
+            <Textarea />
           </div>
 
           <Button className="mt-6" fullWidth>
@@ -95,25 +99,4 @@ export function SignUp() {
       </Card>
     </>
   );
-}
-{
-  /* <div>
-  <div className="mt-10 bg-white">
-    <div className="w-96 p-6 text-right text-xl mb-4 pt-4"> </div>
-    <Input about="" className="w-72 bg-gray-500 rounded-lg" />
-    <div className="text-right text-xl mb-4 pt-4"> </div>
-    <Input className="w-72 bg-gray-500 rounded-lg" />
-    <div className="text-right text-xl mb-4 pt-4"></div>
-
-    <Button className={"justify-end "} onClick={submit_comment}></Button>
-  </div>
-  <div>
-    <img
-      src={ideaMan}
-      alt={"ideaMan"}
-      className={"container w-full mt-6 divide-x-reverse"}
-    />
-  </div>
-  <Footer />
-</div>; */
 }

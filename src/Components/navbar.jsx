@@ -20,8 +20,8 @@ export default function Navbar() {
           </h2>
         </header>
         <MyBubblyLink to={"/"} text="Home" />
-        <MyBubblyLink to={"News"} text="News" />
         <MyBubblyLink to={"wall2"} text="Wall" />
+        <MyBubblyLink to={"News"} text="News" />
       </nav>
     </div>
   );

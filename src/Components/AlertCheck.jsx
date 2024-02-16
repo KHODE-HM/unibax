@@ -5,9 +5,9 @@ function IconOutlined() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 20 20"
       fill="none"
-      className="h-6 w-6 bg-blue-gray-500 rounded-xl"
+      className="bg-black h-6 w-6 rounded-full"
     >
       <path
         strokeLinecap="round"
@@ -27,12 +27,12 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="mt-2 p-5 w-2rem ">
+      <div className="mt-2 p-6 w-2rem  my-5">
         <Alert
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-pretty rounded-xl shadow-xl bg-white-50 text-balance"
+          className="text-pretty rounded-full shadow-xl bg-white-50  "
         >
           <Typography className="text-xl  font-extrabold text-center">
             {Title}

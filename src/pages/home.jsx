@@ -4,7 +4,7 @@ import Footer from "../Components/footer";
 import AlertCheck from "../Components/AlertCheck";
 import Toastmessage from "../Components/Toastmessage";
 import HomeCarousel from "../Components/Carousel";
-import { Progress } from "@material-tailwind/react";
+import { Progress, Typography } from "@material-tailwind/react";
 import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
 import { SignUp } from "../Components/Form";
@@ -54,17 +54,28 @@ export default function Home() {
         </>
 
         <>
-          <div className="p-6 mt-3 mb-3">
-            <Progress
-              value={passedBy}
-              label={passedBy.toString()}
-              variant="filled"
-              size="lg"
-            ></Progress>
+          <div className="rounded-md justify-center hover:animate-pulse">
+            <Toastmessage
+              titleTxt={
+                <Typography className="text-xl  font-extrabold text-pretty mb-5">
+                  سپری شده : %{passedBy.toString()}
+                </Typography>
+              }
+              txt={
+                <Progress
+                  className="h-6"
+                  value={passedBy}
+                  label={`${passedBy} %`}
+                  variant="filled"
+                  size="lg"
+                ></Progress>
+              }
+            />
           </div>
         </>
-        <>
-          <div className="rounded-md justify-center gap-3 animate-pulse">
+
+        <div className="rounded-md justify-center animate-bounce hover:animate-pulse ">
+          <>
             <Toastmessage
               weekInfo={weekTypeObj?.weekCount}
               titleTxt={" این هفته"}
@@ -72,7 +83,6 @@ export default function Home() {
               txt2={"    آموزشی است"}
               //titleTxt={"Semester Will Start next week"}
             />
-
             <Toastmessage
               weekInfo={weekTypeObj?.isFard ? "فرد" : "زوج"}
               titleTxt={"This Week"}
@@ -80,8 +90,9 @@ export default function Home() {
               txt2={"  میباشد  "}
               // titleTxt={"Good Luck"}
             />
-          </div>
-        </>
+          </>
+        </div>
+
         <>
           <div className="items-center pt-6  ">
             <AlertCheck

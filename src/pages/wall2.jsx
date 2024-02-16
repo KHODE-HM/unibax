@@ -1,6 +1,6 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, Suspense, useEffect, useRef, useState } from "react";
 import { Textarea } from "@material-tailwind/react";
 import pic1 from "../images/2.jpg";
 import pic2 from "../images/3.jpg";
@@ -15,68 +15,80 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import AlertCheck from "../Components/AlertCheck";
-import toast from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import Text from "@material-tailwind/react/components/Textarea";
 import supabase from "../services/supaBase";
+import { Skeleton } from "../Components/skeleton";
 export default function Wall2() {
-  const inputRef = useRef(null);
-  let apiURL = "http://127.0.0.1:8000/";
   const [wallValues, setWallValues] = useState([]);
-  const [formInput, setFormInput] = useState("");
-  const [show, setShow] = useState(true);
+  const [texareaInput, setTexareaInput] = useState("");
+  const user_get_date = new Date().getTime();
+  const get_user_submit_time = new Date(user_get_date);
+  const [visible, setVisible] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour 
+		in place of 'smooth' */
+    });
+  };
 
   useEffect(() => {
     getWallData();
   }, []);
 
-  async function insertWallValues() {
-    const { data, error } = await supabase
-      .from("uniwall-users")
-      .insert({ name: formInput, email: "" });
-
-    getWallData();
-  }
-
   async function getWallData() {
-    const { data, error } = await supabase.from("uniwall-users").select("*");
+    const { data, error } = await supabase.from("uniwall_blog").select("*");
     setWallValues(data);
     if (!data) {
       throw error.code;
     }
   }
-
-  function handel_input_wall(e) {
-    setFormInput(e.target.value);
+  async function insertWallValues() {
+    const { data, err } = await supabase
+      .from("uniwall_blog")
+      .insert({ text: texareaInput, created_at: get_user_submit_time });
+    // console.log(texareaInput);
+    toast.success("متشکرم !!  نظر شما ارسال شد");
+    // console.log(wallValues);
+    getWallData();
+    if (err) {
+      toast.error(`${err}`);
+    }
   }
 
-  function BlogCard({ Title, SubTitle, wallValue, img }) {
+  function handel_input_wall(e) {
+    setTexareaInput(e.target.value);
+    // console.log(texareaInput);
+  }
+
+  function BlogCard({ Title, SubTitle, img, prop }) {
     return (
       <>
-        <Card className=" mt-5 md:w-full items-center sm:w-[24rem]  overflow-hidden  ">
-          <CardHeader
-            floated={false}
-            shadow={false}
-            color="transparent"
-            className="m-0 rounded-md"
-          >
-            <img src={img} className="w-200px" alt="ui/ux review check" />
-          </CardHeader>
-          <CardBody>
-            <Typography variant="h4" color="blue-gray">
-              {Title}
-            </Typography>
-            <Typography
-              variant="lead"
-              color="gray"
-              className="mt-3 font-normal"
+        <div className="mt-5 p-6">
+          <Card className="  mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  text-center  ">
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="m-0 rounded-full"
             >
-              &apos;{SubTitle}
-            </Typography>
-          </CardBody>
-          <CardFooter className="flex items-center justify-between">
-            <Typography className="font-normal">{wallValue}</Typography>
-          </CardFooter>
-        </Card>
+              <img src={img} className="w-200px" alt="ui/ux review check" />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h6" color="blue-gray">
+                {Title}
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex items-center ">
+              <Typography className="font-light text-center ">
+                {SubTitle}
+              </Typography>
+            </CardFooter>
+          </Card>
+        </div>
       </>
     );
   }
@@ -84,32 +96,95 @@ export default function Wall2() {
     <div>
       <div>
         <>
+          <Toaster />
           <Navbar />
-
           <AlertCheck
-            Title={"این صفحه در حال تکمیل میباشد "}
-            Paragraph="به صفحه وال خوش آمدید"
+            Title="به صفحه وال خوش آمدید"
             Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
-              شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجا برای همه
+              شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجابه
               اشتراک بزارید "
           />
         </>
-
         <>
           <div className="mt-6 p-10 ">
+            <Card className=" mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  ">
+              <CardHeader
+                floated={false}
+                shadow={false}
+                color="transparent"
+                className="m-0 rounded-md"
+              >
+                <img src={pic2} className="w-200px" alt="ui/ux review check" />
+              </CardHeader>
+              <CardBody>
+                <Typography variant="h4" color="blue-gray">
+                  تو هم یادگاریتو بنویس
+                </Typography>
+                {/* <Typography
+                  variant="lead"
+                  color="gray"
+                  className="mt-3 font-normal"
+                >
+                  &apos;
+                </Typography> */}
+              </CardBody>
+              <CardFooter className="inline-block  justify-between">
+                <div className=" w-[10rem] h-[5rem] mb-5 bg-transparent">
+                  <Textarea
+                    variant="static"
+                    placeholder="متن رو اینجا وارد کنید و بعد save رو بزنید"
+                    rows={8}
+                    onChange={(e) => handel_input_wall(e)}
+                  />
+                </div>
+
+                <Button size={"md"} className="mt-2" onClick={insertWallValues}>
+                  save
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </>
+      </div>
+      {wallValues.map((e) => {
+        return (
+          <>
             <BlogCard
-              img={pic2}
-              Title={"تو هم یادگاریتو بنویس"}
+              key={e.id}
+              Title={e.text}
+              SubTitle={e.created_at}
+              img={pic1}
+            />
+          </>
+        );
+      })}
+      <>
+        {" "}
+        <Button
+          className="relative rounded-full left-0-p-5"
+          onClick={scrollToTop}
+        >
+          top
+        </Button>
+      </>
+      <Footer />
+    </div>
+  );
+}
+
+{
+  /* <BlogCard
+              img={pic1}
+              Title={}
               SubTitle={
-                <Textarea
+                <Text
                   type={"text"}
                   size="md"
-                  onChange={(e) => handel_input_wall(e)}
-                  placeholder={"متن رو اینجا وارد کنید و بعد save رو بزنید"}
+                  placeholder={"}
                 />
               }
               // wallValue={<Button onClick={handel_click}>save</Button>}
-              wallValue={<Button onClick={insertWallValues}>save</Button>}
+              wallValue={}
             />
           </div>
           <div className="sm:mt-6 justify-center p-10  ">
@@ -123,16 +198,6 @@ export default function Wall2() {
                 />
               );
             })}
-            {/* <Button
-              className="fixed top-0 right-1"
-              onClick={window.scroll(0, 0)}
-            >
-              Scroll top{" "}
-            </Button> */}
-          </div>
-          <Footer />
-        </>
-      </div>
-    </div>
-  );
+           
+          */
 }

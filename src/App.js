@@ -2,10 +2,10 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
-import Wall from "./pages/wall";
 import News from "./pages/News";
 import Wall2 from "./pages/wall2";
 import { isMobileContext } from "./context";
+
 import { StrictMode, Suspense, useEffect, useState } from "react";
 import { BubblyContainer, BubblyLink } from "react-bubbly-transitions";
 export default function App() {
@@ -27,13 +27,13 @@ export default function App() {
       <isMobileContext.Provider value={isMobile}>
         <Routes>
           <Route
-            path="/"
+            path=""
             element={
               <>
-                <BubblyLink to="Home" element="home"></BubblyLink>
-                <BubblyLink to="/News" element="News"></BubblyLink>
-                <BubblyLink to="/wall2" element="wall2"></BubblyLink>
                 <Outlet />
+                <BubblyLink to="home" element="home"></BubblyLink>
+                <BubblyLink to="News" element="News"></BubblyLink>
+                <BubblyLink to="wall2" element="wall2"></BubblyLink>
               </>
             }
           />

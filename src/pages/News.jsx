@@ -43,12 +43,7 @@ export default function News() {
   return (
     <div>
       <>
-        <header className="mx-4 p-5">
-          <h1>
-            <i className="text-lg">UniWall</i>
-          </h1>
-          <Navbar />
-        </header>
+        <Navbar />
       </>
 
       <>

@@ -6437,9 +6437,9 @@ header,
 nav {
   display: flex;
 }
-
+header,
 nav {
-  gap: 10px;
+  gap: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family:
@@ -6493,6 +6493,8 @@ nav {
 body .react-bubbly-transitions__bubbly-link {
   outline: none;
   padding: 0;
+  font-size: large;
+  font-weight: 100;
 }
 
 body .react-bubbly-transitions__bubbly-link.active {
@@ -6515,11 +6517,11 @@ body .react-bubbly-transitions__bubbly-link.active:after {
   --size: 200vw;
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   #react-bubbly-transitions__bubbles {
     --size: 125vw;
   }
-}
+} */
 
 .react-bubbly-transitions__first,
 .react-bubbly-transitions__second {
