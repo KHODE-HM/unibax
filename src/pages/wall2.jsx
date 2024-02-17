@@ -22,7 +22,6 @@ export default function Wall2() {
   const [texareaInput, setTexareaInput] = useState("");
   const user_get_date = new Date().getTime();
   const get_user_submit_time = new Date(user_get_date);
-  const [visible, setVisible] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -34,11 +33,11 @@ export default function Wall2() {
   };
 
   useEffect(() => {
-    getWallData();
+    getWallData({ prop: "blog_view" });
   }, []);
 
-  async function getWallData() {
-    const { data, error } = await supabase.from("uniwall_blog").select("*");
+  async function getWallData({ prop }) {
+    const { data, error } = await supabase.from(prop).select("*");
     setWallValues(data);
     if (!data) {
       throw error.code;
@@ -51,7 +50,7 @@ export default function Wall2() {
     // console.log(texareaInput);
     toast.success("متشکرم !!  نظر شما ارسال شد");
     // console.log(wallValues);
-    getWallData();
+    getWallData({ prop: "blog_view" });
     if (err) {
       toast.error(`${err}`);
     }
@@ -64,7 +63,7 @@ export default function Wall2() {
     // console.log(texareaInput);
   }
 
-  function BlogCard({ Title, SubTitle, img, prop }) {
+  function BlogCard({ Title, SubTitle, img }) {
     return (
       <>
         <div className="mt-5 p-6">
@@ -82,10 +81,8 @@ export default function Wall2() {
                 {Title}
               </Typography>
             </CardBody>
-            <CardFooter className="flex items-center ">
-              <Typography className="font-light text-center ">
-                {SubTitle}
-              </Typography>
+            <CardFooter className="flex items-center  ">
+              <Typography className="font-light ">{SubTitle}</Typography>
             </CardFooter>
           </Card>
         </div>
@@ -129,18 +126,18 @@ export default function Wall2() {
                 </Typography> */}
               </CardBody>
               <CardFooter className=" inline-block justify-between">
-                <div className=" w-[10rem] h-[5rem]  mb-5 bg-transparent">
+                <div className=" w-full h-auto  mb-5 bg-transparent decoration-wavy">
                   <Textarea
                     variant="static"
                     placeholder="متن رو اینجا وارد کنید و بعد save رو بزنید"
                     rows={5}
                     onChange={(e) => handel_input_wall(e)}
                   />
-                </div>{" "}
-              </CardFooter>{" "}
-                  <Button size={"md "} onClick={insertWallValues}>
-                    save
-                  </Button>
+                </div>
+                <Button className="mt-10" onClick={insertWallValues}>
+                  save
+                </Button>
+              </CardFooter>
             </Card>
           </div>
         </>
@@ -169,34 +166,4 @@ export default function Wall2() {
       <Footer />
     </div>
   );
-}
-
-{
-  /* <BlogCard
-              img={pic1}
-              Title={}
-              SubTitle={
-                <Text
-                  type={"text"}
-                  size="md"
-                  placeholder={"}
-                />
-              }
-              // wallValue={<Button onClick={handel_click}>save</Button>}
-              wallValue={}
-            />
-          </div>
-          <div className="sm:mt-6 justify-center p-10  ">
-            {wallValues.map((card) => {
-              return (
-                <BlogCard
-                  wallValue={card.name}
-                  SubTitle={card.id}
-                  Title={card.id}
-                  img={pic1}
-                />
-              );
-            })}
-           
-          */
 }

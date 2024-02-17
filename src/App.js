@@ -22,32 +22,34 @@ export default function App() {
   }, []);
   const isMobile = width <= 768;
   return (
-    <BrowserRouter>
-      <BubblyContainer />
-      <isMobileContext.Provider value={isMobile}>
-        <Routes>
-          <Route
-            path=""
-            element={
-              <>
-                <Outlet />
-                <BubblyLink to="home" element="home"></BubblyLink>
-                <BubblyLink to="News" element="News"></BubblyLink>
-                <BubblyLink to="wall2" element="wall2"></BubblyLink>
-              </>
-            }
-          />
-          <Route index element={<Home />} />
-          <Route path="/News" element={<News />} />
-          <Route path="/wall2" element={<Wall2 />} />
-          <Route
-            path="*"
-            element={
-              <h1 className="text-pretty text-center text-2xl">Not Found </h1>
-            }
-          />
-        </Routes>
-      </isMobileContext.Provider>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <BubblyContainer />
+        <isMobileContext.Provider value={isMobile}>
+          <Routes>
+            <Route
+              path=""
+              element={
+                <>
+                  <Outlet />
+                  <BubblyLink to="home" element="home"></BubblyLink>
+                  <BubblyLink to="News" element="News"></BubblyLink>
+                  <BubblyLink to="wall2" element="wall2"></BubblyLink>
+                </>
+              }
+            />
+            <Route index element={<Home />} />
+            <Route path="/News" element={<News />} />
+            <Route path="/wall2" element={<Wall2 />} />
+            <Route
+              path="*"
+              element={
+                <h1 className="text-pretty text-center text-2xl">Not Found </h1>
+              }
+            />
+          </Routes>
+        </isMobileContext.Provider>
+      </BrowserRouter>
+    </>
   );
 }

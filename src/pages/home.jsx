@@ -63,10 +63,11 @@ export default function Home() {
               txt={
                 <Progress
                   className="h-6"
-                  value={passedBy}
-                  label={`${passedBy} %`}
+                  label={<p>{passedBy}%</p>}
+                  value={`${passedBy}`}
                   variant="filled"
                   size="lg"
+                  dir="LTR"
                 ></Progress>
               }
             />
