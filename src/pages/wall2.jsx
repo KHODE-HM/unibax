@@ -58,7 +58,6 @@ export default function Wall2() {
 
   function handel_input_wall(e) {
     setTexareaInput(e.target.value);
-    setTexareaInput("");
 
     // console.log(texareaInput);
   }
