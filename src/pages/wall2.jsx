@@ -50,6 +50,7 @@ export default function Wall2() {
     // console.log(texareaInput);
     toast.success("متشکرم !!  نظر شما ارسال شد");
     // console.log(wallValues);
+    setTexareaInput("");
     getWallData({ prop: "blog_view" });
     if (err) {
       toast.error(`${err}`);
