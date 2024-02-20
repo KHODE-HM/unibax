@@ -39,8 +39,8 @@ export default function App() {
               }
             />
             <Route index element={<Home />} />
-            <Route path="/News" element={<News />} />
-            <Route path="/wall2" element={<Wall2 />} />
+            <Route path="News" element={<News />} />
+            <Route path="wall2" element={<Wall2 />} />
             <Route
               path="*"
               element={
