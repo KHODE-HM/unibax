@@ -2,49 +2,37 @@ import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useState, useRef } from "react";
 import { Textarea } from "@material-tailwind/react";
 import { toast, Toaster } from "react-hot-toast";
-export function SignUp() {
-  const [nameComment, setNameComment] = useState("");
-  const [emailComment, setEmailComment] = useState("");
-  const textAreaComment = useRef(null);
-  //APi
-  // function submit_comment() {
-  //   console.log(textAreaComment);
-  // }
-  //   let now_date = new Date();
-  //   console.log({
-  //     date: `${now_date.getFullYear()}-${now_date.getMonth()}-${now_date.getDay()}`,
-  //     name: nameComment,
-  //     email: emailComment,
-  //     idea: textAreaComment.current.value,
-  //   });
-  //   axios
-  //     .post(apiURL + "/idea/add-idea-api/", {
-  //       date: `${now_date.getFullYear()}-${now_date.getMonth()}-${now_date.getDay()}`,
-  //       name: nameComment,
-  //       email: emailComment,
-  //       idea: textAreaComment.current.value,
-  //     })
-  //     .then((response) => {
-  //       if (response.data.detail === "ok") {
-  //         toast.success("ممنون از نظرت");
-  //       } else {
-  //         toast.error("The request was not accepted");
-  //       }
-  //     });
-  // }
-  // let now_date = new Date();
-  // console.log({
-  //   date: `${now_date.getFullYear()}-${now_date.getMonth()}-${now_date.getDay()}`,
-  //   name: nameComment,
-  //   email: emailComment,
-  //   idea: textAreaComment.current.value,
-  // });
+import supabase from "../services/supaBase";
+export default function SignUp() {
+  const [userComment, setUserComment] = useState([]);
+  const [username, setUsername] = useState([]);
+  const [userEmailFild, setUserEmailFild] = useState([]);
+  const user_form_submit_time = new Date().getTime();
+  function handel_usernames() {
+    setUsername(e.target.value);
+  }
   function handelChangeEmailComment(e) {
-    setEmailComment(e.target.value);
+    setUserEmailFild(e.target.value);
   }
 
-  function handelChangeNameComment(e) {
-    setNameComment(e.target.value);
+  function handelChangeComment(e) {
+    setUserComment(e.target.value);
+  }
+  async function postUserInfo() {
+    const { data, err } = await supabase.from("uniwall-users").insert({
+      Email: userEmailFild,
+      text: userComment,
+      created_at: user_form_submit_time,
+    });
+    setUserComment("");
+    setUserEmailFild("");
+    setUsername("");
+    console.log(data);
+    if (data) {
+      toast.success("ممنون از نظرت");
+    } else {
+      toast.error("The request was not accepted");
+    }
   }
   return (
     <>
@@ -92,7 +80,7 @@ export function SignUp() {
             <Textarea />
           </div>
 
-          <Button className="mt-6" fullWidth>
+          <Button className="mt-6" fullWidth onClick={postUserInfo}>
             ارسال
           </Button>
         </form>

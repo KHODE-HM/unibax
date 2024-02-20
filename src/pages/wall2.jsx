@@ -22,6 +22,8 @@ export default function Wall2() {
   const [texareaInput, setTexareaInput] = useState("");
   const user_get_date = new Date().getTime();
   const get_user_submit_time = new Date(user_get_date);
+  const now = new Date(get_user_submit_time).toDateString;
+  console.log(now)
 
   const scrollToTop = () => {
     window.scrollTo({
