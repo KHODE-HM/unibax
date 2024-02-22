@@ -7,32 +7,32 @@ export default function SignUp() {
   const [userComment, setUserComment] = useState([]);
   const [username, setUsername] = useState([]);
   const [userEmailFild, setUserEmailFild] = useState([]);
-  const user_form_submit_time = new Date().getTime();
-  function handel_usernames() {
-    setUsername(e.target.value);
+  const user_form_submit_time = new Date();
+  function handle_usernames(e) {
+    // setUsername(e.target.value);
+    console.log(e.target.value);
   }
-  function handelChangeEmailComment(e) {
-    setUserEmailFild(e.target.value);
+  function handleChangeEmailComment(e) {
+    // setUserEmailFild(e.target.value);
+    console.log(e.target.value);
   }
 
-  function handelChangeComment(e) {
-    setUserComment(e.target.value);
+  function handleChangeComment(e) {
+    // setUserComment(e.target.value);
+    console.log(e.target.value);
   }
   async function postUserInfo() {
-    const { data, err } = await supabase.from("uniwall-users").insert({
-      Email: userEmailFild,
-      text: userComment,
-      created_at: user_form_submit_time,
-    });
-    setUserComment("");
-    setUserEmailFild("");
-    setUsername("");
-    console.log(data);
-    if (data) {
-      toast.success("ممنون از نظرت");
-    } else {
-      toast.error("The request was not accepted");
-    }
+    // const { data, err } = await supabase.from("uniwall-users").insert({
+    //   Email: userEmailFild,
+    //   text: userComment,
+    //   created_at: user_form_submit_time,
+    // });
+    // console.log(data);
+    // if (data) {
+    //   toast.success("ممنون از نظرت");
+    // } else {
+    //   toast.error("The request was not accepted");
+    // }
   }
   return (
     <>
@@ -54,7 +54,7 @@ export default function SignUp() {
                 className: "before:content-none after:content-none",
               }}
               onChange={(e) => {
-                handelChangeNameComment(e);
+                handle_usernames(e);
               }}
               type={"text"}
             />
@@ -70,17 +70,21 @@ export default function SignUp() {
               invalid:border-pink-500 invalid:text-pink-600
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               onChange={(e) => {
-                handelChangeEmailComment(e);
+                handleChangeEmailComment(e);
               }}
               type={"text"}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               نظرت برای سایت:
             </Typography>
-            <Textarea />
+            <Textarea
+              onChange={(e) => {
+                handleChangeComment(e);
+              }}
+            />
           </div>
 
-          <Button className="mt-6" fullWidth onClick={postUserInfo}>
+          <Button className="mt-6" fullWidth>
             ارسال
           </Button>
         </form>

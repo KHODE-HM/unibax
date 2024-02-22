@@ -1,5 +1,6 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
+import { Skeleton, Fild } from "../Components/skeleton";
 import "../css/news.css";
 import {
   Card,
@@ -8,8 +9,10 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-
+import { isMobileContext } from "../context";
+import { useContext } from "react";
 export default function News() {
+  const Mobile = useContext(isMobileContext);
   function Cards({ prop }) {
     return (
       <Card
@@ -39,20 +42,36 @@ export default function News() {
       </Card>
     );
   }
+  if (Mobile) {
+    return (
+      <div>
+        <>
+          <Navbar />
+        </>
 
-  return (
-    <div>
-      <>
-        <Navbar />
-      </>
-
-      <>
-        <div>
-          <Cards />
-          <Cards />
+        <>
+          <div>
+            <Cards />
+            <Cards />
+          </div>
+          <Footer />
+        </>
+      </div>
+    );
+  } else {
+    return (
+      <div className=" overflow-hidden">
+        <div className=" grid  grid-cols-3 gap-3  ">
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Fild />
+            <Fild />
+            <Fild />
+          </>
         </div>
-        <Footer />
-      </>
-    </div>
-  );
+      </div>
+    );
+  }
 }

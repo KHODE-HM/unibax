@@ -1,6 +1,8 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import { Fragment, Suspense, useEffect, useRef, useState } from "react";
+import { Skeleton, Fild } from "../Components/skeleton";
+import { isMobileContext } from "../context";
+import { Suspense, useEffect, useContext, useState } from "react";
 import { Textarea } from "@material-tailwind/react";
 import pic1 from "../images/2.jpg";
 import pic2 from "../images/3.jpg";
@@ -20,17 +22,17 @@ import supabase from "../services/supaBase";
 export default function Wall2() {
   const [wallValues, setWallValues] = useState([]);
   const [texareaInput, setTexareaInput] = useState("");
-  const user_get_date = new Date().getTime();
-  const get_user_submit_time = new Date(user_get_date);
-  const now = new Date(get_user_submit_time).toDateString;
-  console.log(now)
+  const Mobile = useContext(isMobileContext);
+  const get_user_submit_time = new Date();
+
+  // const get_user_submit_time = new Date(user_get_date);
+  // const now = new Date(get_user_submit_time).toDateString;
+  // console.log(now)
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-      /* you can also use 'auto' behaviour 
-		in place of 'smooth' */
     });
   };
 
@@ -91,81 +93,103 @@ export default function Wall2() {
       </>
     );
   }
-  return (
-    <div>
+  if (Mobile) {
+    return (
       <div>
-        <>
-          <Toaster />
-          <Navbar />
-          <AlertCheck
-            Title="به صفحه وال خوش آمدید"
-            Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
+        <div>
+          <>
+            <Toaster />
+            <Navbar />
+            <AlertCheck
+              Title="به صفحه وال خوش آمدید"
+              Paragraph2="وال یک بلاگ اختصاصی برای دانشجو ها است 
               شما میتونید تکست ها و روزمرگی هاتون توی دانشگاه اینجابه
               اشتراک بزارید "
-          />
-        </>
-        <>
-          <div className="mt-6 p-10 ">
-            <Card className=" mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  ">
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="m-0 rounded-md"
-              >
-                <img src={pic2} className="w-200px" alt="ui/ux review check" />
-              </CardHeader>
-              <CardBody>
-                <Typography variant="h4" color="blue-gray">
-                  تو هم یادگاریتو بنویس
-                </Typography>
-                {/* <Typography
+            />
+          </>
+          <>
+            <div className="mt-6 p-10 ">
+              <Card className=" mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  ">
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 rounded-md"
+                >
+                  <img
+                    src={pic2}
+                    className="w-200px"
+                    alt="ui/ux review check"
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Typography variant="h4" color="blue-gray">
+                    تو هم یادگاریتو بنویس
+                  </Typography>
+                  {/* <Typography
                   variant="lead"
                   color="gray"
                   className="mt-3 font-normal"
                 >
                   &apos;
                 </Typography> */}
-              </CardBody>
-              <CardFooter className=" inline-block justify-between">
-                <div className=" w-full h-auto  mb-5 bg-transparent decoration-wavy">
-                  <Textarea
-                    variant="static"
-                    placeholder="متن رو اینجا وارد کنید و بعد save رو بزنید"
-                    rows={5}
-                    onChange={(e) => handel_input_wall(e)}
-                  />
-                </div>
-                <Button className="mt-10" onClick={insertWallValues}>
-                  save
-                </Button>
-              </CardFooter>
-            </Card>
-          </div>
+                </CardBody>
+                <CardFooter className=" inline-block justify-between">
+                  <div className=" w-full h-auto  mb-5 bg-transparent decoration-wavy">
+                    <Textarea
+                      variant="static"
+                      placeholder="متن رو اینجا وارد کنید و بعد save رو بزنید"
+                      rows={5}
+                      onChange={(e) => handel_input_wall(e)}
+                    />
+                  </div>
+                  <Button className="mt-10" onClick={insertWallValues}>
+                    save
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
+          </>
+        </div>
+        {wallValues.map((e) => {
+          return (
+            <>
+              <BlogCard
+                key={e.id}
+                Title={e.text}
+                SubTitle={e.created_at}
+                img={pic1}
+              />
+            </>
+          );
+        })}
+
+        <Footer />
+        <>
+          <Button
+            className="relative bg-black text-white h-5 w-5 p-5 bottom-32 right-3 text-base items-baseline"
+            onClick={scrollToTop}
+            onScroll={document.s}
+          >
+            ▲
+          </Button>
         </>
       </div>
-      {wallValues.map((e) => {
-        return (
+    );
+  } else {
+    return (
+      <div className=" overflow-hidden">
+        <div className=" grid  grid-cols-3 gap-3  ">
           <>
-            <BlogCard
-              key={e.id}
-              Title={e.text}
-              SubTitle={e.created_at}
-              img={pic1}
-            />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Fild />
+            <Fild />
+            <Fild />
           </>
-        );
-      })}
-      <>
-        {" "}
-        <Button
-          className="relative rounded-full left-0-p-5"
-          onClick={scrollToTop}
-        >
-          top
-        </Button>
-      </>
-      <Footer />
-    </div>
-  );
+        </div>
+      </div>
+    );
+  }
 }

@@ -6,8 +6,7 @@ import Toastmessage from "../Components/Toastmessage";
 import { Progress, Typography } from "@material-tailwind/react";
 import { useContext, useEffect, useRef, useState } from "react";
 import { isMobileContext } from "../context";
-import { SignUp } from "../Components/Form";
-
+import SignUp from "../Components/Form";
 export default function Home() {
   //I used context for passing around window width
   const Mobile = useContext(isMobileContext);
