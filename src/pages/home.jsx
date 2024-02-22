@@ -46,7 +46,7 @@ export default function Home() {
             list="list-disc"
             Title={"قابلیت های سایت ما "}
             Paragraph={"مشاهده هفته آموزشی  "}
-            Paragraph2={"وبلاگ دانشجویی"}
+            Paragraph2={"وبلاگ  دانشجویی"}
             Paragraph3={"نظر سنجی اساتید توسط دانشجو"}
           />
         </>
