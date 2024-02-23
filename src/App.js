@@ -1,4 +1,3 @@
-"use strict";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
@@ -35,7 +34,7 @@ export default function App() {
                   <BubblyLink to="home" element="home"></BubblyLink>
                   <BubblyLink to="News" element="News"></BubblyLink>
                   <BubblyLink to="wall2" element="wall2"></BubblyLink>
-                </>  
+                </>
               }
             />
             <Route path="/" index element={<Home />} />
