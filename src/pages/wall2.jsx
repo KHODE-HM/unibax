@@ -2,19 +2,17 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { Skeleton, Fild } from "../Components/skeleton";
 import { isMobileContext } from "../context";
-import { Suspense, useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { Textarea } from "@material-tailwind/react";
-import pic1 from "../images/2.jpg";
-import pic2 from "../images/3.jpg";
+import pic1 from "../images/message.svg";
+import pic2 from "../images/blog.svg";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   Typography,
-  Avatar,
   Button,
-  Tooltip,
 } from "@material-tailwind/react";
 import AlertCheck from "../Components/AlertCheck";
 import { toast, Toaster } from "react-hot-toast";
