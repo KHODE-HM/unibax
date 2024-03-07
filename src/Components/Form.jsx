@@ -19,7 +19,8 @@ export default function SignUp() {
   let rendercount = 0;
   const email_pattern = new RegExp(
     "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
-  );
+  ,"");
+  const userNamePattern =new RegExp()
   const user_form_submit_time = new Date();
   const {
     register,

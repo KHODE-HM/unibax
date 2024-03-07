@@ -27,7 +27,7 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="mt-2 p-6 w-2rem  my-5">
+      <div className="mt-2 p-2 w-2rem  my-5">
         <Alert
           icon={<IconOutlined />}
           open={dismiss}

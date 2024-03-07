@@ -12,7 +12,7 @@ export default function Navbar() {
     </BubblyLink>
   );
   return (
-    <div className="mx-4 p-5 ">
+    <div className="mx-4 p-4">
       <nav className="animate-in" style={{ animationDelay: "800ms" }}>
         <header className="mx-4 p-5">
           <h2>
