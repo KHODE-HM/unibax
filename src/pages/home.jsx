@@ -63,7 +63,7 @@ export default function Home() {
                 <Progress
                   className="h-6"
                   label={<p>{passedBy}%</p>}
-                  value={`${passedBy}`}
+                  value={passedBy}
                   variant="filled"
                   size="lg"
                   dir="LTR"

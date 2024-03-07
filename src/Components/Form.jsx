@@ -17,10 +17,6 @@ export default function SignUp() {
   const [userEmailFild, setUserEmailFild] = useState("");
   const { submitedData, setSubmitedData } = useState({});
   let rendercount = 0;
-  const email_pattern = new RegExp(
-    "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
-  ,"");
-  const userNamePattern =new RegExp()
   const user_form_submit_time = new Date();
   const {
     register,
@@ -38,10 +34,6 @@ export default function SignUp() {
     console.log(e.target.value);
   }
   function handleChangeEmailComment(e) {
-    let value = e.target.value;
-    if (email_pattern.test(value)) {
-      setUserEmailFild(value);
-    }
     setUserEmailFild("");
     console.log(e.target.value);
   }
@@ -78,9 +70,10 @@ export default function SignUp() {
   };
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
-      reset({ names: "" });
-      reset({ comment: "" });
-      reset({ created_at: "" });
+      // reset(..."names");
+      // reset(..."comment");
+      // reset(..."email");
+      console.log(isSubmitSuccessful);
     }
   }, [submitedData, formState, reset]);
   rendercount++;
@@ -128,11 +121,11 @@ export default function SignUp() {
               disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
               invalid:border-pink-500 invalid:text-pink-600
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-              value={userEmailFild}
-              onChange={(e) => {
-                handleChangeEmailComment(e);
-              }}
-              {...register("email")}
+              onChange={handleChangeEmailComment}
+              {...register("email", {
+                required: true,
+                pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
+              })}
               type={"text"}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">

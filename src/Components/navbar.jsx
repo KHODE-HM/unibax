@@ -12,16 +12,16 @@ export default function Navbar() {
     </BubblyLink>
   );
   return (
-    <div className="mx-4 p-4">
+    <div className="mx-4 p-2">
       <nav className="animate-in" style={{ animationDelay: "800ms" }}>
         <header className="mx-4 p-5">
           <h2>
             <i className="block font-bold text-wrap">UniWall</i>
           </h2>
         </header>
-        <MyBubblyLink to={"/"} text="Home" />
-        <MyBubblyLink to={"/wall2"} text="Wall" />
-        <MyBubblyLink to={"/News"} text="News" />
+        <MyBubblyLink to={"/"} text="خانه" />
+        <MyBubblyLink to={"/wall2"} text="بلاگ" />
+        <MyBubblyLink to={"/News"} text="اساتید" />
       </nav>
     </div>
   );
