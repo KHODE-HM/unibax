@@ -5,79 +5,40 @@ import {
   Typography,
   CardHeader,
 } from "@material-tailwind/react";
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@material-tailwind/react";
 import { toast, Toaster } from "react-hot-toast";
-import homesvg from "../images/dxf91zhqd2z6b0bwg85ktm5s4.png";
 import supabase from "../services/supaBase";
+import working from "../images/working.mp4";
 export default function SignUp() {
-  const [userComment, setUserComment] = useState("");
-  const [username, setUsername] = useState("");
-  const [userEmailFild, setUserEmailFild] = useState("");
-  const { submitedData, setSubmitedData } = useState({});
-  let rendercount = 0;
-  const user_form_submit_time = new Date();
   const {
     register,
     reset,
     handleSubmit,
     formState,
     formState: { isSubmitSuccessful },
-  } = useForm({
-    defaultValues: [
-      { names: "..", email: "..", comment: "...", created_at: "" },
-    ],
-  });
-  function handle_usernames(e) {
-    setUsername(e.target.value);
-    console.log(e.target.value);
-  }
-  function handleChangeEmailComment(e) {
-    setUserEmailFild("");
-    console.log(e.target.value);
-  }
-
-  function handleChangeComment(e) {
-    // setUserComment(e.target.value);
-    console.log(e.target.value);
-  }
+  } = useForm({});
   const onFormSubmit = async (data) => {
     try {
-      console.log(
-        submitedData,
-        username,
-        userEmailFild,
-        userComment,
-        user_form_submit_time
-      );
-      toast.success("متشکرم !!");
+      data.created_at = new Date();
+      const { data: incertedData, error } = await supabase
+        .from("uniwall-users")
+        .insert({ data });
+
+      console.log(data);
+
+      toast.success("ممنون از نظرت");
+      if (error) {
+        console.log(error.message, error.hint);
+      }
+      reset();
     } catch {
       toast.error("لطفا صبر کنید..");
+      console.log("error");
     }
-
-    // const { data, err } = await supabase.from("uniwall-users").insert({
-    //   Email: userEmailFild,
-    //   text: userComment,
-    //   created_at: user_form_submit_time,
-    // });
-    // console.log(data);
-    // if (data) {
-    //   toast.success("ممنون از نظرت");
-    // } else {
-    //   toast.error("The request was not accepted");
-    // }
   };
-  useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      // reset(..."names");
-      // reset(..."comment");
-      // reset(..."email");
-      console.log(isSubmitSuccessful);
-    }
-  }, [submitedData, formState, reset]);
-  rendercount++;
-  console.log(rendercount);
+
   return (
     <>
       <Toaster />
@@ -86,16 +47,16 @@ export default function SignUp() {
         className="items-center shadow-xl"
         shadow={false}
       >
-        <CardHeader>
-          <img
-            src={homesvg}
-            alt=""
-            className="w-[300px] h-[300px] flex-shrink rounded-full p-5"
-          />
+        <CardHeader className="h-[400px] mt-3">
+          <video autoPlay muted>
+            {" "}
+            <source src={working} />
+            your browser dosnt supoort video
+          </video>
         </CardHeader>
         <form
           className="mt-8 mb-2 p-6 w-80 max-w-screen-lg sm:w-96 "
-          onSubmit={handleSubmit(onFormSubmit)}
+          onSubmit={onFormSubmit}
         >
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -107,8 +68,10 @@ export default function SignUp() {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
-              {...register("name")}
-              type={"text"}
+              {...register("name", { pattern: /^[a-zA-Z]+(?: [a-zA-Z]+)*$/ })}
+              type="text"
+              placeholder="Name"
+              required
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               ایمیل:
@@ -121,19 +84,18 @@ export default function SignUp() {
               disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
               invalid:border-pink-500 invalid:text-pink-600
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-              onChange={handleChangeEmailComment}
               {...register("email", {
-                required: true,
-                pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
               })}
-              type={"text"}
+              type="email"
+              required
             />
+
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               نظرت برای سایت:
             </Typography>
             <Textarea {...register("comment")} />
           </div>
-
           <Button className="mt-6" fullWidth type="submit">
             ارسال
           </Button>

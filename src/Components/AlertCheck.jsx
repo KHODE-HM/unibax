@@ -32,7 +32,7 @@ export default function AlertCheck({
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-pretty rounded-full shadow-xl bg-white-50  "
+          className="text-pretty  rounded-full shadow-xl bg-white-50  "
         >
           <Typography className="text-xl  font-extrabold text-center">
             {Title}

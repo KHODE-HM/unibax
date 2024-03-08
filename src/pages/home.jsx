@@ -93,11 +93,11 @@ export default function Home() {
         </div>
 
         <>
-          <div className="items-center pt-6  ">
+          <div className="items-center pt-5 ">
             <AlertCheck
-              list=" "
               Title={"نظرات"}
-              Paragraph=" نطرات و تجربه کاربری خودتون با ما به اشتراک بزار"
+              Paragraph=" &nbsp;نطرات و تجربه کاربری خودتون با ما به اشتراک بزار" 
+             
               Paragraph2="تا یک محیط کاربری تمام کمال بسازیم"
             />
           </div>

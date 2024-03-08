@@ -21,18 +21,31 @@ export default function Wall2() {
   const [wallValues, setWallValues] = useState([]);
   const [texareaInput, setTexareaInput] = useState("");
   const Mobile = useContext(isMobileContext);
-  const get_user_submit_time = new Date();
-
-  // const get_user_submit_time = new Date(user_get_date);
-  // const now = new Date(get_user_submit_time).toDateString;
-  // console.log(now)
-
+  const get_user_submit_time = new Date().toLocaleString("fa-IR");
+  console.log(get_user_submit_time);
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 290,
       behavior: "smooth",
     });
   };
+  // const wordPattern = new RegExp(
+  //   [
+  //     /\b\w*k\w*o\w*s\b/g,
+  //     /\b\w*k\w*i\w*r\b|\b\w*k\w*i\w*r\w*\b/g,
+  //     /\b\w*k\w*o\w*n\b|\b\w*k\w*o\w*n\w*\b/g,
+  //     /\b\w*\w*ص\w*ک\b/g,
+  //     /\b\w*g\w*a\w*i\b/g,
+  //     /\b\w*\w*ص\w*ک\b/g,
+  //     /\b\w*\w*س\w*ک\b/g,
+  //     /\b\w*ر\w*ی\w*ک\b|\b\w*ر\w*ی\w*ک\b/g,
+  //     /\b\w*ن\w*و\w*ک\b|\b\w*ن\w*و\w*ک\b/g,
+  //     /\b\w*د\w*ن\w*ج\b/g,
+  //   ],
+  //   ""
+  // );
+  const wordPattern =
+    /\b(?:k\w*o\w*s|k\w*i\w*r|k\w*o\w*n|\w*ص\w*ک|g\w*a\w*i|\w*س\w*ک|\w*ر\w*ی\w*ک|\w*ن\w*و\w*ک|\w*د\w*ن\w*ج)\b/g;
 
   useEffect(() => {
     getWallData({ prop: "blog_view" });
@@ -46,9 +59,10 @@ export default function Wall2() {
     }
   }
   async function insertWallValues() {
-    const { data, err } = await supabase
-      .from("uniwall_blog")
-      .insert({ text: texareaInput, created_at: get_user_submit_time });
+    const { data, err } = await supabase.from("uniwall_blog").insert({
+      text: texareaInput,
+      created_at: get_user_submit_time.toLocaleString("fa-IR"),
+    });
     // console.log(texareaInput);
     toast.success("متشکرم !!  نظر شما ارسال شد");
     // console.log(wallValues);
@@ -60,6 +74,10 @@ export default function Wall2() {
   }
 
   function handel_input_wall(e) {
+    let value = e.target.value;
+    if (wordPattern.test(value)) {
+      setTexareaInput("");
+    }
     setTexareaInput(e.target.value);
 
     // console.log(texareaInput);
@@ -68,7 +86,7 @@ export default function Wall2() {
   function BlogCard({ Title, SubTitle, img }) {
     return (
       <>
-        <div className="mt-5 p-6">
+        <div className="mt-5 p-6 sm:flex justify-around">
           <Card className="  mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  text-center  ">
             <CardHeader
               floated={false}
@@ -83,8 +101,8 @@ export default function Wall2() {
                 {Title}
               </Typography>
             </CardBody>
-            <CardFooter className="flex items-center  ">
-              <Typography className="font-light ">{SubTitle}</Typography>
+            <CardFooter className="flex  flex-col items-center">
+              <Typography className="font-serif ">{SubTitle}</Typography>
             </CardFooter>
           </Card>
         </div>
@@ -93,7 +111,7 @@ export default function Wall2() {
   }
   if (Mobile) {
     return (
-      <div>
+      <div className="lg:flex justify-around">
         <div>
           <>
             <Toaster />
@@ -106,7 +124,7 @@ export default function Wall2() {
             />
           </>
           <>
-            <div className="mt-6 p-10 ">
+            <div className="mt-7 p-5 sm:flex justify-around">
               <Card className=" mt-5 md:w-full  sm:w-[24rem]  overflow-hidden  ">
                 <CardHeader
                   floated={false}
@@ -114,11 +132,7 @@ export default function Wall2() {
                   color="transparent"
                   className="m-0 rounded-md"
                 >
-                  <img
-                    src={pic2}
-                    className="w-200px"
-                    alt="ui/ux review check"
-                  />
+                  <img src={pic2} className="w-full" alt="ui/ux review check" />
                 </CardHeader>
                 <CardBody>
                   <Typography variant="h4" color="blue-gray">
@@ -165,11 +179,19 @@ export default function Wall2() {
         <Footer />
         <>
           <Button
-            className="relative bg-black text-white h-5 w-5 p-5 bottom-32 right-3 text-base items-baseline"
+            className="relative bg-white h-auto w-auto bottom-36 right-3 "
             onClick={scrollToTop}
-            onScroll={document.s}
           >
-            ▲
+            <svg
+              className="flex  items-center text-center"
+              aria-label=" Logo"
+              // fill="var(--geist-foreground)"
+              fill="black"
+              viewBox="0 0 100 100"
+              height="30"
+            >
+              <path d="M37.59.25l36.95 64H.64l36.95-64z"></path>
+            </svg>
           </Button>
         </>
       </div>
