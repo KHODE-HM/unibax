@@ -20,7 +20,14 @@ module.exports = MT({
       // => @media (min-width: 1536px) { ... }
     },
   },
-  extend: {},
+  extend: {
+    fontFamily: {
+      "peyda-th": ["Peyda-th", "sans-serif"],
+      "peyda-rg": ["Peyda-rg", "sans-serif"],
+      "peyda-md": ["Peyda-md", "sans-serif"],
+      "peyda-md": ["Peyda-smb", "sans-serif"],
+    },
+  },
 
   plugins: [],
 });

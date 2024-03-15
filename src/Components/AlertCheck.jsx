@@ -27,34 +27,24 @@ export default function AlertCheck({
   const [dismiss, setDismiss] = useState(true);
   return (
     <>
-      <div className="mt-2 p-2 w-2rem  my-5">
+      <div id="Alert-container" className="text-pretty mt-2 p-2 w-2rem  my-5">
         <Alert
           icon={<IconOutlined />}
           open={dismiss}
           onClose={() => setDismiss(false)}
-          className="text-pretty  rounded-full shadow-xl bg-white-50  "
+          className="text-balance rounded-full shadow-xl bg-white-50"
         >
-          <Typography className="text-xl  font-extrabold text-center">
-            {Title}
-          </Typography>
+          <Typography className="text-center Peyda-th">{Title}</Typography>
           <ul className={`${list} `}>
             <li>
-              <Typography className="text-pretty  font-sans text-lg">
-                {Paragraph}
-              </Typography>
+              <Typography className=" text-md">{Paragraph}</Typography>
             </li>
             <li>
-              <Typography className="text-wrap  font-sans text-lg">
-                {" "}
-                {Paragraph2}
-              </Typography>
+              <Typography className="text-md"> {Paragraph2}</Typography>
             </li>
             <li>
               {" "}
-              <Typography className="text-pretty  font-sans text-lg">
-                {" "}
-                {Paragraph3}
-              </Typography>
+              <Typography className=" text-md"> {Paragraph3}</Typography>
             </li>
           </ul>
         </Alert>

@@ -4,8 +4,8 @@ import { Skeleton, Fild } from "../Components/skeleton";
 import { isMobileContext } from "../context";
 import { useEffect, useContext, useState } from "react";
 import { Textarea } from "@material-tailwind/react";
-import pic1 from "../images/message.svg";
-import pic2 from "../images/blog.svg";
+import pic1 from "../assets/images/message.svg";
+import pic2 from "../assets/images/blog.svg";
 import {
   Card,
   CardHeader,
@@ -29,23 +29,23 @@ export default function Wall2() {
       behavior: "smooth",
     });
   };
-  // const wordPattern = new RegExp(
-  //   [
-  //     /\b\w*k\w*o\w*s\b/g,
-  //     /\b\w*k\w*i\w*r\b|\b\w*k\w*i\w*r\w*\b/g,
-  //     /\b\w*k\w*o\w*n\b|\b\w*k\w*o\w*n\w*\b/g,
-  //     /\b\w*\w*ص\w*ک\b/g,
-  //     /\b\w*g\w*a\w*i\b/g,
-  //     /\b\w*\w*ص\w*ک\b/g,
-  //     /\b\w*\w*س\w*ک\b/g,
-  //     /\b\w*ر\w*ی\w*ک\b|\b\w*ر\w*ی\w*ک\b/g,
-  //     /\b\w*ن\w*و\w*ک\b|\b\w*ن\w*و\w*ک\b/g,
-  //     /\b\w*د\w*ن\w*ج\b/g,
-  //   ],
-  //   ""
-  // );
-  const wordPattern =
-    /\b(?:k\w*o\w*s|k\w*i\w*r|k\w*o\w*n|\w*ص\w*ک|g\w*a\w*i|\w*س\w*ک|\w*ر\w*ی\w*ک|\w*ن\w*و\w*ک|\w*د\w*ن\w*ج)\b/g;
+  const wordPattern = new RegExp(
+    [
+      /\b\w*k\w*o\w*s\b/g,
+      /\b\w*k\w*i\w*r\b|\b\w*k\w*i\w*r\w*\b/g,
+      /\b\w*k\w*o\w*n\b|\b\w*k\w*o\w*n\w*\b/g,
+      /\b\w*\w*ص\w*ک\b/g,
+      /\b\w*g\w*a\w*i\b/g,
+      /\b\w*\w*ص\w*ک\b/g,
+      /\b\w*\w*س\w*ک\b/g,
+      /\b\w*ر\w*ی\w*ک\b|\b\w*ر\w*ی\w*ک\b/g,
+      /\b\w*ن\w*و\w*ک\b|\b\w*ن\w*و\w*ک\b/g,
+      /\b\w*د\w*ن\w*ج\b/g,
+    ],
+    ""
+  );
+  // const wordPattern =
+  //   /\b(?:k\w*o\w*s|k\w*i\w*r|k\w*o\w*n|\w*ص\w*ک|g\w*a\w*i|\w*س\w*ک|\w*ر\w*ی\w*ک|\w*ن\w*و\w*ک|\w*د\w*ن\w*ج)\b/g;
 
   useEffect(() => {
     getWallData({ prop: "blog_view" });
@@ -76,7 +76,7 @@ export default function Wall2() {
   function handel_input_wall(e) {
     let value = e.target.value;
     if (wordPattern.test(value)) {
-      setTexareaInput("");
+      value.replace("");
     }
     setTexareaInput(e.target.value);
 

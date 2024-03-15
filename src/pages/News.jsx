@@ -1,7 +1,7 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import { Skeleton, Fild } from "../Components/skeleton";
-import "../css/news.css";
+// import "src/style/news.css";
 import {
   Card,
   CardHeader,

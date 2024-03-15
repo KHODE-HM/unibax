@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { Textarea } from "@material-tailwind/react";
 import { toast, Toaster } from "react-hot-toast";
 import supabase from "../services/supaBase";
-import working from "../images/working.mp4";
+import working from "../assets/images/working.mp4";
 export default function SignUp() {
   const {
     register,
