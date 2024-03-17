@@ -25,9 +25,7 @@ export default function SignUp() {
       const { data: incertedData, error } = await supabase
         .from("uniwall-users")
         .insert({ data });
-
-      console.log(data);
-
+      // console.log(data);
       toast.success("ممنون از نظرت");
       if (error) {
         console.log(error.message, error.hint);
@@ -47,8 +45,8 @@ export default function SignUp() {
         className="items-center shadow-xl"
         shadow={false}
       >
-        <CardHeader className="h-[400px] mt-3">
-          <video autoPlay muted>
+        <CardHeader className="h-[600px] mt-3">
+          <video autoPlay onPlaying={true} muted>
             {" "}
             <source src={working} />
             your browser dosnt supoort video
