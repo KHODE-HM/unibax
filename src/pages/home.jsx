@@ -13,17 +13,7 @@ export default function Home() {
   const [weekTypeObj, setWeekTypeObj] = useState();
 
   const passedBy = (weekTypeObj?.weekCount / 16) * 100;
-  const [Users, setUsers] = useState([]);
-  // useEffect(() => {
-  //   getUsers();
-  //   console.log(Users);
-  // }, []);
-  // async function getUsers() {
-  //   const { data } = await supabase.from("myUser").fetch();
-  //   setUsers(data);
-  //   console.log(data);
-  //   return () => {};
-  // }
+
   //my odd - even week calculator
   useEffect(() => {
     let starterPoint = new Date("2024-02-09T23:59:59.000Z").getTime();

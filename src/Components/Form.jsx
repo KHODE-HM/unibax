@@ -45,8 +45,8 @@ export default function SignUp() {
         className="items-center shadow-xl"
         shadow={false}
       >
-        <CardHeader className="h-[600px] mt-3">
-          <video autoPlay onPlaying={true} muted>
+        <CardHeader className="h-[450px] mt-3">
+          <video autoPlay muted>
             {" "}
             <source src={working} />
             your browser dosnt supoort video
