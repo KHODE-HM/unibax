@@ -1,5 +1,7 @@
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
+import { useState } from "react";
+
 import { Skeleton, Fild } from "../Components/skeleton";
 // import "src/style/news.css";
 import {
@@ -11,7 +13,13 @@ import {
 } from "@material-tailwind/react";
 import { isMobileContext } from "../context";
 import { useContext } from "react";
+import Cardsss from "../Components/card";
 export default function News() {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleClick = (id) => {
+    setSelectedId(id === selectedId ? null : id);
+  };
   const Mobile = useContext(isMobileContext);
   function Cards({ prop }) {
     return (
@@ -48,14 +56,37 @@ export default function News() {
         <>
           <Navbar />
         </>
-
         <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+             
+            }}
+          >
+            {[1, 2, 3].map((id) => (
+              <Cardsss
+                key={id}
+                id={id}
+                title={`Card ${id}`}
+                subtitle={`Subtitle ${id}`}
+                isSelected={id === selectedId}
+                onClick={handleClick}
+              />
+            ))}
+          </div>
+        </>
+        {/* <>
           <div>
             <Cards />
             <Cards />
           </div>
           <Footer />
         </>
+      */}
       </div>
     );
   } else {

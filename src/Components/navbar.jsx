@@ -5,6 +5,10 @@ import { Button } from "@material-tailwind/react";
 import { BubblyLink } from "react-bubbly-transitions";
 
 export default function Navbar() {
+  function DarkMode() {
+   let dark= document.body.classList.add("darkMode");
+    // document.body.remove("darkMode")
+  }
   const Mobile = useContext(isMobileContext);
   const MyBubblyLink = ({ to = "", text = "" }) => (
     <BubblyLink to={to} colorStart="#080808" colorEnd="#ffffff">
@@ -15,9 +19,8 @@ export default function Navbar() {
     <div className="mx-4 p-2">
       <nav className="animate-in" style={{ animationDelay: "800ms" }}>
         <header className="mx-4 p-3">
-          <h2>
-        UniWall
-          </h2>
+          {/* <Button size="sm" onClick={DarkMode()}>تاریک</Button> */}
+          <h2>UniWall</h2>
         </header>
         <MyBubblyLink to={"/"} text="خانه" />
         <MyBubblyLink to={"/wall2"} text="بلاگ" />
@@ -25,44 +28,4 @@ export default function Navbar() {
       </nav>
     </div>
   );
-  /*return (
-    <>
-      <div className={"nav_bar"}>
-        <div className={"nav_bar_right_items"}>
-          <div className={"nav_bar_item"}>
-            
-          </div>
-          <div className={"nav_bar_item"}>
-            
-          </div>
-          <div className={"nav_bar_item"}>
-          
-          </div>
-        </div>
-        <div className={"nav_bar_left"}>
-          {!Mobile && (
-            <div
-              onClick={() => {
-                console.log(Mobile);
-              }}
-              className={"nav_bar_left_items"}
-            >
-              Uniwall
-            </div>
-          )}
-          {Mobile && (
-            <div
-              style={{
-                fontFamily: "cursive",
-                fontSize: "1.75rem",
-                color: "white",
-              }}
-            >
-              UniWall
-            </div>
-          )}
-        </div>
-      </div>
-    </>
-  );*/
 }
