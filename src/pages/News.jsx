@@ -1,16 +1,8 @@
 import Navbar from "../Components/navbar";
-import Footer from "../Components/footer";
 import { useState } from "react";
 
 import { Skeleton, Fild } from "../Components/skeleton";
-// import "src/style/news.css";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import { isMobileContext } from "../context";
 import { useContext } from "react";
 import Cardsss from "../Components/card";
@@ -57,6 +49,9 @@ export default function News() {
           <Navbar />
         </>
         <>
+          <Cards />
+        </>
+        <>
           <div
             style={{
               display: "flex",
@@ -64,7 +59,6 @@ export default function News() {
               justifyContent: "center",
               alignItems: "center",
               height: "100vh",
-             
             }}
           >
             {[1, 2, 3].map((id) => (
@@ -79,14 +73,6 @@ export default function News() {
             ))}
           </div>
         </>
-        {/* <>
-          <div>
-            <Cards />
-            <Cards />
-          </div>
-          <Footer />
-        </>
-      */}
       </div>
     );
   } else {

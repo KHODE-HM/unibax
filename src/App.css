@@ -1,10 +1,17 @@
 @import "./style/bubbly-transitions.scss";
 @import "./style/fonts.scss";
 @import "./style/card.scss";
-body {
-  font-family: "Peyda-md";
-}
+
 .darkMode {
   background-color: black;
   color: #fff;
+}
+.dark {
+  --bg-color: #1f2937;
+  --text-color: #f9fafb;
+}
+
+.dark button {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
